@@ -1,0 +1,10 @@
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\bin\Debug\ChangeFormDesign.exe.config
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\bin\Debug\ChangeFormDesign.exe
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\bin\Debug\ChangeFormDesign.pdb
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\obj\Debug\ChangeFormDesign.csproj.AssemblyReference.cache
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\obj\Debug\ChangeFormDesign.Properties.Resources.resources
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\obj\Debug\ChangeFormDesign.csproj.GenerateResource.cache
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\obj\Debug\ChangeFormDesign.csproj.CoreCompileInputs.cache
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\obj\Debug\ChangeFormDesign.exe
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\obj\Debug\ChangeFormDesign.pdb
+D:\Project_ForCoding\TIL\C#\ChangeFormDesign\ChangeFormDesign\ChangeFormDesign\obj\Debug\ChangeFormDesign.Form1.resources
