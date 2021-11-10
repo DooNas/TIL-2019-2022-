@@ -18,8 +18,8 @@ _이는 자바의 JVM이 동작하는 것과 비슷한 원리이다._
 _확장자로 .cs로 사욯한다._  
 _.cs의 의미는 CSharp(C#)의 줄임말이다._  
   
-
-### C# 기본구조  
+---
+## C# 기본구조  
 ```csharp
 using System;
 namespace abc{
@@ -63,3 +63,13 @@ namespace abc{
    ```
    프로그램 실행시 실제로 구동될 공간이다.  
    `Java`와 살짝 비슷하게 느껴진다?
+5. ```csharp
+   Console.WriteLine("HelloWorld");
+   ```
+   Console.WriteLine();은 C#의 함수로 콘솔출력을 한다.
+6. 이후``` }}```을 통해 닫으면 끝
+## 결과물
+```
+HelloWorld
+```
+---
