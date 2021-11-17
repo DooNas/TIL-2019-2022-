@@ -1,0 +1,16 @@
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.csproj.AssemblyReference.cache
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.AssemblyInfoInputs.cache
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.AssemblyInfo.cs
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.exe
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.deps.json
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.runtimeconfig.json
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.runtimeconfig.dev.json
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.dll
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\bin\Debug\net5.0\ref\ConsoleApp1.dll
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.pdb
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.dll
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\obj\Debug\net5.0\ref\ConsoleApp1.dll
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.pdb
+D:\Project_ForCoding\TIL\C#\BaekJoon_6976\ConsoleApp1\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.genruntimeconfig.cache
