@@ -9,7 +9,10 @@
   * 사용하면서 키가 오픈되어 있어 삭제처리해두었다.
   * [테스트](./Civ19_WithCsharp_Test)를 통해 OpenApi가 _Xml_형태로 받아짐을 알 수 있었다.
   
-  
+  ## 결과물
+  ![test](https://user-images.githubusercontent.com/40691856/143234613-6ebda773-4a10-4448-8daf-f4bfb680a133.PNG)
+  > 문제 없음! 이제 이걸 가공하는 것만 남았다!
+
 * 2021-11-24
   * xml에서 파싱하는 법에 대해 구글링을 해보았다.
     * 
