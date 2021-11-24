@@ -25,7 +25,7 @@ namespace Civ19_WithCsharp
         static void OpenApiGetFile()
         {
             string url = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson"; // URL
-            url += "?ServiceKey=" + "bLGxzflOuRiHWXK3IjCE0hyCkYR4LL9El6kRUbUKpNQvb%2F58f7O78BeP7kkrHbcAXtrv4d7TEFPIgji%2BznEE%2BQ%3D%3D"; // Service Key
+            url += "?ServiceKey=" + ApiKey.Getkey(); // Service Key
             //url += "&pageNo=1";
             //url += "&numOfRows=10";
             url += "&startCreateDt=20211124";
