@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a9eb30f0-4b27-4033-88d9-be50cf2249ee": {
+      "ProjectGuid": "a9eb30f0-4b27-4033-88d9-be50cf2249ee",
+      "DisplayName": "OpenAPI",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

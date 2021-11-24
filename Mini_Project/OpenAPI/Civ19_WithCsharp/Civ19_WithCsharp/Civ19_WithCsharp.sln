@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Civ19_WithCsharp", "Civ19_WithCsharp\Civ19_WithCsharp.csproj", "{1CBAFF3E-DEDA-4D84-AAB7-37745C4F1FE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CBAFF3E-DEDA-4D84-AAB7-37745C4F1FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBAFF3E-DEDA-4D84-AAB7-37745C4F1FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBAFF3E-DEDA-4D84-AAB7-37745C4F1FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBAFF3E-DEDA-4D84-AAB7-37745C4F1FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {461FE92E-A6C6-4F54-86B4-376B4B281B00}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL_SERVICE</resultMsg>
+		</header>
+		<body>
+		<dataType>XML</dataType>
+		<items>
+			<item>
+				<areaId>4122000000</areaId>
+				<areaName>평택</areaName>
+				<dayAvgRhm>58</dayAvgRhm>
+				<dayAvgTa>0</dayAvgTa>
+				<dayAvgWs>1</dayAvgWs>
+				<dayMaxTa>6</dayMaxTa>
+				<dayMinRhm>20</dayMinRhm>
+				<dayMinTa>5</dayMinTa>
+				<daySumRn>0</daySumRn>
+				<daySumSs>0</daySumSs>
+				<paCropName>무</paCropName>
+				<paCropSpeId>PA130201</paCropSpeId>
+				<paCropSpeName>봄</paCropSpeName>
+				<wrnCd></wrnCd>
+				<wrnCount>0</wrnCount>
+				<ymd>2020-12-01 00:00:00</ymd>
+			</item>
+		</items>
+		<numOfRows>10</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>1</totalCount>
+	</body>
+</response>

@@ -1,0 +1,8 @@
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\bin\Debug\Civ19_WithCsharp_Test.exe.config
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\bin\Debug\Civ19_WithCsharp_Test.exe
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\bin\Debug\Civ19_WithCsharp_Test.pdb
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\obj\Debug\Civ19_WithCsharp_Test.csproj.AssemblyReference.cache
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\obj\Debug\Civ19_WithCsharp_Test.csproj.SuggestedBindingRedirects.cache
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\obj\Debug\Civ19_WithCsharp_Test.csproj.CoreCompileInputs.cache
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\obj\Debug\Civ19_WithCsharp_Test.exe
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\Civ19_WithCsharp_Test\obj\Debug\Civ19_WithCsharp_Test.pdb

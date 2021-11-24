@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1cbaff3e-deda-4d84-aab7-37745c4f1fe2": {
+      "ProjectGuid": "1cbaff3e-deda-4d84-aab7-37745c4f1fe2",
+      "DisplayName": "Civ19_WithCsharp",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
