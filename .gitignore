@@ -560,3 +560,4 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/csharp,java,androidstudio,dotnetcore
 Mini_Project/OpenAPI/Civ19_WithCsharp_Test/Civ19_WithCsharp_Test/Civ19_WithCsharp_Test/Apikey.cs
 Mini_Project/OpenAPI/Civ19_WithCsharp/Civ19_WithCsharp/Civ19_WithCsharp/ApiKey.cs
+Mini_Project/OpenAPI/xml_parsing_Test/xml_parsing_Test/xml_parsing_Test/ApiKey.cs
