@@ -59,14 +59,29 @@ namespace Civ19_WithCsharp
             string jsonStr = JsonConvert.SerializeXmlNode(XmFile, Newtonsoft.Json.Formatting.None, true);
             return jsonStr;
         }
+        public class User
+        {
+            public string createDt { get; set; }
+            public string deathCnt { get; set; }
+            public string decideCnt { get; set; }
+            public string examCnt { get; set; }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             OpenApiGetFile();
-            richTextBox1.Text = XmltoJson(results);
             //xml에서 어떻게 해야 현제 확진자 수를 추출할 수 있을까?
-           
-
+            JObject response = JObject.Parse(XmltoJson(results));
+            IList<User> searchRes = response["item"].Select(r => JsonConvert.DeserializeObject<User>(r.ToString())).ToList();
+            String re = null;
+            foreach (User user in searchRes)
+            {
+                re += user.createDt + "\n";
+                re += user.deathCnt + "\n";
+                re += user.decideCnt + "\n";
+                re += user.examCnt + "\n";
+            }
+            richTextBox1.Text = re;
         }
     }
 }

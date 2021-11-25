@@ -39,3 +39,5 @@
   * 원하는 대로 가공되어 출력이 되었다.
       ## 결과물
       ![XmltoJson_Test](https://user-images.githubusercontent.com/40691856/143390358-e0cc7da3-7214-44ec-ad04-17ffc4661753.PNG)
+  * Json형태로 파싱된 출력자료를 정리해보았다.
+    ![자료 정리](https://user-images.githubusercontent.com/40691856/143413517-69724cc0-67b7-45c9-b732-43f5b7bfc4ab.PNG)
