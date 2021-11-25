@@ -1,4 +1,5 @@
 ﻿using System;
+using Civ19_WithCsharp;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +60,7 @@ namespace Civ19_WithCsharp
             return jsonStr;
         }
 
-            private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             OpenApiGetFile();
             richTextBox1.Text = XmltoJson(results);
