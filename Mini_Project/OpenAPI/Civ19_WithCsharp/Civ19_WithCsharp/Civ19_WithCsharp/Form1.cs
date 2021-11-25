@@ -25,7 +25,7 @@ namespace Civ19_WithCsharp
         }
         static HttpClient client = new HttpClient();
         static string results = string.Empty;
-        static void OpenApiGetFile()
+        static String OpenApiGetFile()
         {
             string url = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson"; // URL
             url += "?ServiceKey=" + ApiKey.Getkey(); // Service Key
@@ -44,19 +44,17 @@ namespace Civ19_WithCsharp
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 results = reader.ReadToEnd();
             }
-
-            //xml 파일처리
-            StreamWriter writer;
-            writer = File.CreateText("Civ19.xml");
-            writer.Write(results);
-            writer.Close();
-        }
-        public static String XmltoJson(string results)
-        {
             XmlDocument XmFile = new XmlDocument();
             XmFile.LoadXml(results);
             JsonConvert.SerializeXmlNode(XmFile);
             string jsonStr = JsonConvert.SerializeXmlNode(XmFile, Newtonsoft.Json.Formatting.None, true);
+
+            //Json 파일처리
+            StreamWriter writer;
+            writer = File.CreateText("Civ19.Json");
+            writer.Write(results);
+            writer.Close();
+
             return jsonStr;
         }
         public class User
@@ -70,18 +68,25 @@ namespace Civ19_WithCsharp
         private void button1_Click(object sender, EventArgs e)
         {
             OpenApiGetFile();
-            //xml에서 어떻게 해야 현제 확진자 수를 추출할 수 있을까?
-            JObject response = JObject.Parse(XmltoJson(results));
-            IList<User> searchRes = response["item"].Select(r => JsonConvert.DeserializeObject<User>(r.ToString())).ToList();
-            String re = null;
-            foreach (User user in searchRes)
+            //xml에서 어떻게 해야 현제 확진자 수를 추출할 수 있을까?\
+            try
             {
-                re += user.createDt + "\n";
-                re += user.deathCnt + "\n";
-                re += user.decideCnt + "\n";
-                re += user.examCnt + "\n";
+                JObject json = JObject.Parse(results);
+                var jsonKey = json[1]["body"]["items"]["item"];
+                foreach (var j1 in jsonKey)
+                {
+                    foreach (var j2 in j1)
+                    {
+                        richTextBox1.Text = "사망자 수 : " + j2["deathCnt"].ToString();
+                        richTextBox1.Text = "확진자 수 : " + j2["decideCnt"].ToString();
+                    }
+                }
             }
-            richTextBox1.Text = re;
+            catch(JsonReaderException js)
+            {
+                MessageBox.Show(js.Message);
+            }
+
         }
     }
 }
