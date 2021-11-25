@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Civ19_WithCsharp
 {
@@ -41,26 +43,29 @@ namespace Civ19_WithCsharp
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 results = reader.ReadToEnd();
             }
+
+            //xml 파일처리
             StreamWriter writer;
             writer = File.CreateText("Civ19.xml");
             writer.Write(results);
             writer.Close();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public static String XmltoJson(string results)
         {
-			OpenApiGetFile();
-            richTextBox1.Text = results;
-            /*
             XmlDocument XmFile = new XmlDocument();
-
             XmFile.LoadXml(results);
-            XmlNodeList Xmllist =  XmFile.GetElementsByTagName("items");
-            foreach (XmlNode XmlNode in Xmllist)
-            {
-                richTextBox1.Text = XmlNode["item"]["DECIDE_CNT"].InnerText;
-            }
-            */
+            JsonConvert.SerializeXmlNode(XmFile);
+            string jsonStr = JsonConvert.SerializeXmlNode(XmFile, Newtonsoft.Json.Formatting.None, true);
+            return jsonStr;
+        }
+
+            private void button1_Click(object sender, EventArgs e)
+        {
+            OpenApiGetFile();
+            richTextBox1.Text = XmltoJson(results);
+            //xml에서 어떻게 해야 현제 확진자 수를 추출할 수 있을까?
+           
+
         }
     }
 }
