@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using System.Xml;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace Civ19_WithCsharp
 {
@@ -24,9 +25,10 @@ namespace Civ19_WithCsharp
             InitializeComponent();
         }
         static HttpClient client = new HttpClient();
-        static string results = string.Empty;
-        static String OpenApiGetFile()
+
+        static void OpenApiGetFile()
         {
+            //데이터 호출(Xml)
             string url = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson"; // URL
             url += "?ServiceKey=" + ApiKey.Getkey(); // Service Key
             //url += "&pageNo=1";
@@ -37,54 +39,47 @@ namespace Civ19_WithCsharp
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
 
-            results = string.Empty;
+            String results = string.Empty;
             HttpWebResponse response;
             using (response = request.GetResponse() as HttpWebResponse)
             {
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 results = reader.ReadToEnd();
             }
-            XmlDocument XmFile = new XmlDocument();
-            XmFile.LoadXml(results);
-            JsonConvert.SerializeXmlNode(XmFile);
-            string jsonStr = JsonConvert.SerializeXmlNode(XmFile, Newtonsoft.Json.Formatting.None, true);
-
-            //Json 파일처리
+            //Xml 파일처리
             StreamWriter writer;
-            writer = File.CreateText("Civ19.Json");
+            writer = File.CreateText("Civ19.xml");
             writer.Write(results);
             writer.Close();
-
-            return jsonStr;
-        }
-        public class User
-        {
-            public string createDt { get; set; }
-            public string deathCnt { get; set; }
-            public string decideCnt { get; set; }
-            public string examCnt { get; set; }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            richTextBox1.Clear();
             OpenApiGetFile();
-            //xml에서 어떻게 해야 현제 확진자 수를 추출할 수 있을까?\
+            //xml에서 어떻게 해야 현제 확진자 수를 추출할 수 있을까?
+            ////Xml을 Json형태로 받아보았다. [실패]
+            ////Xml에서 파싱을 해보자.
             try
             {
-                JObject json = JObject.Parse(results);
-                var jsonKey = json[1]["body"]["items"]["item"];
-                foreach (var j1 in jsonKey)
+                XmlDocument xml = new XmlDocument();
+                xml.Load("Civ19.xml");
+
+                XmlNodeList xnList = xml.SelectNodes("/response/body/items/item"); //접근할 노드
+
+                
+                foreach (XmlNode xn in xnList)
                 {
-                    foreach (var j2 in j1)
-                    {
-                        richTextBox1.Text = "사망자 수 : " + j2["deathCnt"].ToString();
-                        richTextBox1.Text = "확진자 수 : " + j2["decideCnt"].ToString();
-                    }
+                    string part1 = xn["createDt"].InnerText; //작성 날짜 불러오기
+                    string part2 = xn["decideCnt"].InnerText; //확진자 불러오기
+
+                    richTextBox1.AppendText("작성 날짜 : "+ part1 + " \t 확진자 수 : " + part2 + "명\n\n");
                 }
+                
             }
-            catch(JsonReaderException js)
+            catch (ArgumentException ex)
             {
-                MessageBox.Show(js.Message);
+                MessageBox.Show("XML 문제 발생\r\n" + ex);
             }
 
         }

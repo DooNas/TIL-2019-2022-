@@ -36,9 +36,13 @@
 
 
   * 앞의 아이디어를 참고해서 원인을 분석해보니 `newtonsoft.json.dll`이 없기 때문에 해당 클래스가 없다고 인식하는 것이라 [사이트](newtonsoft.json.dll)를 통해 파일을 받아 참조를 해보았다.
+
+
   * 원하는 대로 가공되어 출력이 되었다.
       ## 결과물
       ![XmltoJson_Test](https://user-images.githubusercontent.com/40691856/143390358-e0cc7da3-7214-44ec-ad04-17ffc4661753.PNG)
+        
+
   * Json형태로 파싱된 출력자료를 정리해보았다.
     ![자료 정리](https://user-images.githubusercontent.com/40691856/143413517-69724cc0-67b7-45c9-b732-43f5b7bfc4ab.PNG)  
     원하는 값은 그날 확진자수 `decideCnt`의 값을 얻는 것이다.
@@ -47,11 +51,18 @@
     > 왜 오류가 생기는 것일까?  
     > Xml에서 Json으로 바꾸면서 바뀐 데이터를 내가 추적할 수 없는 거 같다.  
     > 사실 좀더 자세한 원인이 있는거 같지만 현재 내 코드를 보고 생각할 수 있는 여건은 바꾼 데이터를 추적할 수 없다는 뜻인거 같다.
+      
+
   * 다시 초심으로 돌아와 Xml에서 파싱하는 법을 찾아보았다.  
     [Xml 파싱 테스트](./xml_parsing_Test)을 따로 만들어서 Xml파일에서 파싱하는 것을 최우선의 목표로 잡았다. 
 
     * [XmlNodeList](https://docs.microsoft.com/ko-kr/dotnet/api/system.xml.xmlnodelist?view=net-6.0)  
     * [XmlDocument](https://docs.microsoft.com/ko-kr/dotnet/api/system.xml.xmldocument?view=net-6.0)
     차분하게 참고한 결과 성공적이였다.
-    ![Xml 파싱 테스트_결과](https://user-images.githubusercontent.com/40691856/143458735-9a23de28-dca1-4f17-93f3-6804302f95ad.PNG)
+    ![Xml 파싱 테스트_결과](https://user-images.githubusercontent.com/40691856/143458735-9a23de28-dca1-4f17-93f3-6804302f95ad.PNG)  
       
+      
+
+  * 성공한 양식을 토대로 [.Net을 활용한 OpenApi](./Civ19_WithCsharp)에 적용해 보았다.
+    ## 결과물
+    ![Xml 파싱](https://user-images.githubusercontent.com/40691856/143459390-8bb7c1b9-84e0-4e29-8f60-ec36d46772e9.PNG)
