@@ -1,0 +1,11 @@
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\bin\Debug\xml_parsing_Test.exe.config
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\bin\Debug\xml_parsing_Test.exe
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\bin\Debug\xml_parsing_Test.pdb
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\obj\Debug\xml_parsing_Test.csproj.AssemblyReference.cache
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\obj\Debug\xml_parsing_Test.csproj.SuggestedBindingRedirects.cache
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\obj\Debug\xml_parsing_Test.Form1.resources
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\obj\Debug\xml_parsing_Test.Properties.Resources.resources
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\obj\Debug\xml_parsing_Test.csproj.GenerateResource.cache
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\obj\Debug\xml_parsing_Test.csproj.CoreCompileInputs.cache
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\obj\Debug\xml_parsing_Test.exe
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\xml_parsing_Test\xml_parsing_Test\xml_parsing_Test\obj\Debug\xml_parsing_Test.pdb
