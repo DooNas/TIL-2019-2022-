@@ -19,8 +19,8 @@ namespace Civ19_WithCsharp
             string url = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson"; // URL
             url += "?ServiceKey=" + ApiKey.Getkey(); // Service Key
             //url += "&pageNo=1";
-            //url += "&numOfRows=10";
-            url += "&startCreateDt=20211124";
+            url += "&numOfRows=7";
+            url += "&startCreateDt=20211120";
             //url += "&endCreateDt=20211124";
 
             var request = (HttpWebRequest)WebRequest.Create(url);
