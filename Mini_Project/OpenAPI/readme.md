@@ -66,3 +66,21 @@
   * 성공한 양식을 토대로 [.Net을 활용한 OpenApi](./Civ19_WithCsharp)에 적용해 보았다.
     ## 결과물
     ![Xml 파싱](https://user-images.githubusercontent.com/40691856/143459390-8bb7c1b9-84e0-4e29-8f60-ec36d46772e9.PNG)
+
+* 2021-11-26
+  *  OpenApi를 추출하는 과정에서 차트를 위한 7일치 데이터를 얻고자 손보았지만,  
+     1일치 데이터만 넘어오면서 `NullReferenceException`오류가 발생했다.
+     
+     * 비동기식 처리를 해보았다.  
+       ```
+       public async Task<String> OpenApiGetFile(int day, String key)
+       ```
+       분할한 `OpenApiGetFile`클래스를 비동기화 해보았다.
+       덤으로, `static`처리에서 메인 클래스에서 `new`연산자를 통해 선언하도록 바꿨다.
+  
+       실패했다.
+     * 혹시나 하는 마인드로 `foreach`문에서 `for`문으로 `index`를 가져와 진행하고,  
+       문제의 날짜 데이터의 경우 `if`문을 통해 없으면 반복문을 `return`하도록 조치했다.  
+
+       ## 결과물
+       ![데이터 추출 확인](https://user-images.githubusercontent.com/40691856/143587964-815ce99b-6392-4ec8-a331-ac379bf51244.PNG)
