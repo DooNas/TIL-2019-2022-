@@ -97,3 +97,9 @@
     >```
     이런 식으로 저장되어 보관된다.
     이걸 `DataTable`로 저장한 다음 `Chart`에 적용하면 이번 프로젝트는 끝날거 같다.
+  * XmlParsing클래스를 String과 int형으로 가져올 수 있도록 분할해 두었다.  
+    만약, String으로 가져올 경우 가져올 범위도 선택할 수 있도록 해두었고,  
+    DataTable에도 무사히 넣는데도 일사천리였다.
+
+       ## 결과물
+       ![DataTable로 저장한 형태](https://user-images.githubusercontent.com/40691856/143685503-b6e1c250-2bf0-40ce-8e80-99c986fc5746.PNG)

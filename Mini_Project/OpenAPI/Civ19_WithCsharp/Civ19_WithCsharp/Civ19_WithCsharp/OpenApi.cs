@@ -52,7 +52,7 @@ namespace Civ19_WithCsharp
             writer.Close();
         }
 
-        public void XmlParsing_String(String[] array, String node)
+        public void XmlParsing_String(String[] array, int Start, int End, String node)
         {
             //xml에서 어떻게 해야 현제 확진자 수를 추출할 수 있을까?
             XmlDocument xml = new XmlDocument();
@@ -62,7 +62,7 @@ namespace Civ19_WithCsharp
             int i = 0;
             foreach (XmlNode xn in xnList)
             {
-                array[i] = xn[node].InnerText.Substring(0, 10); //작성 날짜 불러오기
+                array[i] = xn[node].InnerText.Substring(Start, End); //작성 날짜 불러오기
                 i++;
             }
         }
