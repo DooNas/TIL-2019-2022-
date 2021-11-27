@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Threading;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Civ19_WithCsharp
 {
@@ -66,14 +67,8 @@ namespace Civ19_WithCsharp
                 Datatable(createDt, decideCnt);
 
             }
-            catch (ArgumentException ex)
-            {
-                MessageBox.Show("XML 문제 발생\r\n" + ex);
-            }catch(NullReferenceException ex)
-            {
-                MessageBox.Show("OpenApi호출문제 발생\r\n" + ex);
-            }
-
+            catch (ArgumentException ex) { MessageBox.Show("XML 문제 발생\r\n" + ex); }
+            catch(NullReferenceException ex) { MessageBox.Show("OpenApi호출문제 발생\r\n" + ex); }
         }
     }
 }
