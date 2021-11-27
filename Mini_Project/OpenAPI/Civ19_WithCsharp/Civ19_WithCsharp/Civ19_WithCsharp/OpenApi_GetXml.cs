@@ -13,13 +13,22 @@ namespace Civ19_WithCsharp
     {
         static HttpClient client = new HttpClient();
         
-        public async Task<String> OpenApiGetFile(int day, String key)
+        public String date7before()
+        {
+            String date = DateTime.Now.AddDays(-8).ToShortDateString();
+            date = String.Join("",date.Split('-'));
+            return date;
+        }
+
+
+
+        public async Task<String> OpenApiGetFile(String key)
         {
             //데이터 호출(Xml)
             string url = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson"; // URL
             url += "?ServiceKey=" + key; // Service Key
             url += "&numOfRows=7";
-            url += "&startCreateDt=" + day.ToString();
+            url += "&startCreateDt=" + date7before();
             //url += "&endCreateDt=20211124";
 
             var request = (HttpWebRequest)WebRequest.Create(url);
