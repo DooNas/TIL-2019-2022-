@@ -33,12 +33,12 @@ namespace Civ19_WithCsharp
         private void Datatable(String[] createDt, int[] decideCnt)
         {
             dt = new DataTable();
-            dt.Columns.Add(new DataColumn("DATE", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("DATE", typeof(string)));
             dt.Columns.Add(new DataColumn("DECIDECNT", typeof(int)));
             for (int index = 0; index < 7; index++)
             {
                 String D_day = createDt[index + 1];
-                String TodaydecideCnt = (decideCnt[index] - decideCnt[index + 1]).ToString();
+                String TodaydecideCnt = (decideCnt[index + 1] - decideCnt[index]).ToString();
                 if (D_day == null)  //if 더이상 출력할 요소가 없다면 종료.
                 {
                     return;
@@ -46,6 +46,16 @@ namespace Civ19_WithCsharp
                 dt.Rows.Add(D_day, TodaydecideCnt);
                 dataGridView1.DataSource = dt;
             }
+        }
+
+        private void CoivChart(String[] createDt, int[] decideCnt)
+        {
+            chart1.Series.Clear();
+            Series series = new Series("확진자");
+            series.ChartType = SeriesChartType.Bubble;
+            series.Points.DataBindXY(createDt, decideCnt);
+            chart1.Series.Add(series);
+            
         }
 
         private async void Button1_Click(object sender, EventArgs e)
@@ -60,11 +70,17 @@ namespace Civ19_WithCsharp
             try
             {
                 String[] createDt = new string[9];
-                openApi.XmlParsing_String(createDt, 0, 10, "createDt");
+                openApi.XmlParsing_String(createDt, 5, 5, "createDt");
 
                 int[] decideCnt = new int[9];
                 openApi.XmlParsing_Int(decideCnt, "decideCnt");
+
                 Datatable(createDt, decideCnt);
+
+                if (!string.IsNullOrEmpty(createDt[1]))
+                {
+                    CoivChart(createDt, decideCnt);
+                }
 
             }
             catch (ArgumentException ex) { MessageBox.Show("XML 문제 발생\r\n" + ex); }

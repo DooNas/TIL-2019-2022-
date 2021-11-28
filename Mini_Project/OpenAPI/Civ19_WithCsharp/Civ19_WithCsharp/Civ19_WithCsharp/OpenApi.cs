@@ -59,11 +59,11 @@ namespace Civ19_WithCsharp
             xml.Load("Civ19.xml");
 
             XmlNodeList xnList = xml.SelectNodes("/response/body/items/item"); //접근할 노드
-            int i = 0;
+            int i = 8;
             foreach (XmlNode xn in xnList)
             {
-                array[i] = xn[node].InnerText.Substring(Start, End); //작성 날짜 불러오기
-                i++;
+                array[i] = xn[node].InnerText.Substring(Start, End); //문자형 node 데이터 추출
+                i--;
             }
         }
 
@@ -73,11 +73,11 @@ namespace Civ19_WithCsharp
             xml.Load("Civ19.xml");
 
             XmlNodeList xnList = xml.SelectNodes("/response/body/items/item"); //접근할 노드
-            int i = 0;
+            int i = 8;
             foreach (XmlNode xn in xnList)
             {
-                array[i] = int.Parse(xn[node].InnerText); //작성 날짜 불러오기
-                i++;
+                array[i] = int.Parse(xn[node].InnerText); //정수형 node 데이터 추출
+                i--;
             }
         }
     }
