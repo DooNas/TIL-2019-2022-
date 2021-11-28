@@ -116,3 +116,4 @@
 
     차트에 관해서는 좀더 찾아봐야 겠다.  
        ## 결과물
+       ![캡처](https://user-images.githubusercontent.com/40691856/143771713-57c4ff58-0b75-41ea-b16d-0c843435ee13.PNG)
