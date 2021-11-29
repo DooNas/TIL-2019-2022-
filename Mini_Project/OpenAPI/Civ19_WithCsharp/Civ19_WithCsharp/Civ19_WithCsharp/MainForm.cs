@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Threading;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.IO;
 
 namespace Civ19_WithCsharp
 {
@@ -11,6 +12,8 @@ namespace Civ19_WithCsharp
         public MainForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            this.Text = string.Empty;
 
             //Controll to TopPanel
             Top_Bar.MouseUp += panelTop_MouseUp;
@@ -21,7 +24,8 @@ namespace Civ19_WithCsharp
             lb_Title.MouseMove += panelTop_MouseMove;
             BtnClose.Click += Btn_Close;
             BtnMinmon.Click += Btn_Minmon;
-            Btn_Search.Click += Button1_Click;
+
+            Btn_Search.Click += Btn_Search_Click;
         }
 
         //////////////Controll to TopPanel/////////////////
@@ -46,6 +50,7 @@ namespace Civ19_WithCsharp
         }
         private void Btn_Close(object sender, EventArgs e)
         {
+            File.Delete("Civ19.xml");
             this.Close();
         }
 
@@ -76,26 +81,24 @@ namespace Civ19_WithCsharp
         Chart chart;
         private void CoivChart(DataTable dt)
         {
-            /*
-             * Clounm = 2
-             * Row = 7
-             * 
-             * 
-             */
             chart = this.Week_chart;
             chart.Series.Clear();
             var series = chart.Series.Add("확진자");
             series.XValueMember = "날짜";
             series.YValueMembers = "확진자";
-            series.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             chart.DataSource = dt;
-            //chart.Series["확진자"].ChartType = SeriesChartType.SplineArea;
+            series.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             chart.DataBind();
             chart.Visible = true;
 
         }
 
-        private async void Button1_Click(object sender, EventArgs e)
+        private void ChoiceWhen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void Btn_Search_Click(object sender, EventArgs e)
         {
             Thread.Sleep(100);
             OpenApi openApi = new OpenApi();

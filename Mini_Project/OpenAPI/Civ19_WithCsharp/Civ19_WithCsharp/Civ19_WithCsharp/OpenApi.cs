@@ -13,7 +13,9 @@ namespace Civ19_WithCsharp
     public class OpenApi
     {
         static HttpClient client = new HttpClient();
-        
+        String results = string.Empty;
+
+
         public String date7before() //금일 기준 7일전 날짜
         {
             String date = DateTime.Now.AddDays(-8).ToShortDateString();
@@ -35,7 +37,7 @@ namespace Civ19_WithCsharp
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
 
-            String results = string.Empty;
+            //String results = string.Empty;
             HttpWebResponse response ;
             using(response =request.GetResponse() as HttpWebResponse)
             {
