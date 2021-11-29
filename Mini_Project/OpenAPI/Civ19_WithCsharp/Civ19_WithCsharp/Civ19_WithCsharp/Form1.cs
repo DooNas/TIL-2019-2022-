@@ -1,20 +1,6 @@
 ﻿using System;
-using Civ19_WithCsharp;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -28,13 +14,13 @@ namespace Civ19_WithCsharp
             button1.Click += Button1_Click;
         }
         DataTable dt;
-
+        Chart chart;
 
         private void Datatable(String[] createDt, int[] decideCnt)
         {
             dt = new DataTable();
-            dt.Columns.Add(new DataColumn("DATE", typeof(string)));
-            dt.Columns.Add(new DataColumn("DECIDECNT", typeof(int)));
+            dt.Columns.Add(new DataColumn("날짜", typeof(string)));
+            dt.Columns.Add(new DataColumn("확진자수", typeof(int)));
             for (int index = 0; index < 7; index++)
             {
                 String D_day = createDt[index + 1];
@@ -48,14 +34,21 @@ namespace Civ19_WithCsharp
             }
         }
 
-        private void CoivChart(String[] createDt, int[] decideCnt)
+        private void CoivChart(DataTable dt)
         {
-            chart1.Series.Clear();
-            Series series = new Series("확진자");
-            series.ChartType = SeriesChartType.Bubble;
-            series.Points.DataBindXY(createDt, decideCnt);
-            chart1.Series.Add(series);
-            
+            chart = this.chart1;
+            chart.Series.Clear();
+            Series[] series = new Series[dt.Rows.Count];
+            int index = 0;
+            foreach (DataRow dr in dt.Rows)
+            {
+                series[index] = new Series(dr["날짜"].ToString());
+                series[index].ChartType = SeriesChartType.Column;
+                series[index].Points.AddXY("확진자수", int.Parse(dr["확진자수"].ToString()));
+                chart.Series.Add(series[index]);
+                index += 1;
+            }
+
         }
 
         private async void Button1_Click(object sender, EventArgs e)
@@ -79,7 +72,7 @@ namespace Civ19_WithCsharp
 
                 if (!string.IsNullOrEmpty(createDt[1]))
                 {
-                    CoivChart(createDt, decideCnt);
+                    CoivChart(dt);
                 }
 
             }
