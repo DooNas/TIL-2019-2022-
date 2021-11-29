@@ -117,3 +117,17 @@
     차트에 관해서는 좀더 찾아봐야 겠다.  
        ## 결과물
        ![캡처](https://user-images.githubusercontent.com/40691856/143771713-57c4ff58-0b75-41ea-b16d-0c843435ee13.PNG)
+---  
+* ## 2021-11-28
+  * 색갈로 구별되기를 원해서 확진자라는 Sries[]안에 날짜 Series들로 구성해보았다.
+       ## 결과물
+       ![캡처](https://user-images.githubusercontent.com/40691856/143823718-482313e7-6bc0-452f-a21b-9c008a78c460.PNG)  
+       그렇게 괜찮아 보이지 않는다.
+       역시 같은 같아도 날짜별로 구별되는 것이 보기 좋을거 같다.
+
+  *  좀더 깔끔한 UI를 위해 `fontawesome.sharp`을 참조했다.
+  *  또한, [WinForm상단바 제거](https://github.com/DooNas/TIL/tree/main/Mini_Project/ChangeFormDesign/ChangeFormDesign)를 활용해서 꾸며 보았다.
+       ## 결과물
+       ![UI수정](https://user-images.githubusercontent.com/40691856/143848687-858cf241-5a9a-445f-bcbc-e810d1daa51f.PNG)  
+       다만, 아시운 부분은 저기 내부의 배경색을 어떻게 고쳐가 괜찮게 될지 잘 모르겠다.  
+       이부분은 새로 추가할 기능을 넣으면서 조사해볼 생각이다.
