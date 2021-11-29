@@ -1,6 +1,5 @@
 D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\obj\Debug\Civ19_WithCsharp.csproj.AssemblyReference.cache
 D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\obj\Debug\Civ19_WithCsharp.csproj.SuggestedBindingRedirects.cache
-D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\obj\Debug\Civ19_WithCsharp.Form1.resources
 D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\obj\Debug\Civ19_WithCsharp.Properties.Resources.resources
 D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\obj\Debug\Civ19_WithCsharp.csproj.GenerateResource.cache
 D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\obj\Debug\Civ19_WithCsharp.csproj.CoreCompileInputs.cache
@@ -12,3 +11,5 @@ D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\
 D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\bin\Debug\Newtonsoft.Json.dll
 D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\bin\Debug\Newtonsoft.Json.xml
 D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\obj\Debug\Civ19_WithCsharp.csproj.CopyComplete
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\bin\Debug\FontAwesome.Sharp.dll
+D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\Civ19_WithCsharp\Civ19_WithCsharp\Civ19_WithCsharp\obj\Debug\Civ19_WithCsharp.MainForm.resources
