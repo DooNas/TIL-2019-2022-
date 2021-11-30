@@ -15,7 +15,12 @@ namespace Civ19_WithCsharp
         static HttpClient client = new HttpClient();
         String results = string.Empty;
 
-
+        public String Todate() //금일 기준 7일전 날짜
+        {
+            String date = DateTime.Now.ToShortDateString();
+            date = String.Join("", date.Split('-'));
+            return date;
+        }
         public String date7before() //금일 기준 7일전 날짜
         {
             String date = DateTime.Now.AddDays(-8).ToShortDateString();
@@ -30,9 +35,10 @@ namespace Civ19_WithCsharp
             //데이터 호출(Xml)
             string url = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson"; // URL
             url += "?ServiceKey=" + key; // Service Key
-            url += "&numOfRows=7";
+            url += "&pageNo=1";
+            url += "&numOfRows=31";
             url += "&startCreateDt=" + date7before();
-            //url += "&endCreateDt=20211124";
+            url += "&endCreateDt=" + Todate();
 
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";

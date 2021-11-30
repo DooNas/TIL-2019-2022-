@@ -38,6 +38,7 @@
             this.BtnMinmon = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.Main_Content = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.Week_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Btn_Search = new FontAwesome.Sharp.IconButton();
@@ -108,6 +109,7 @@
             // Main_Content
             // 
             this.Main_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            this.Main_Content.Controls.Add(this.label1);
             this.Main_Content.Controls.Add(this.iconButton1);
             this.Main_Content.Controls.Add(this.Week_chart);
             this.Main_Content.Controls.Add(this.Btn_Search);
@@ -117,6 +119,17 @@
             this.Main_Content.Padding = new System.Windows.Forms.Padding(5);
             this.Main_Content.Size = new System.Drawing.Size(776, 399);
             this.Main_Content.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(36, 361);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "2021-11-23";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // iconButton1
             // 
@@ -142,14 +155,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Week_chart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
             this.Week_chart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            this.Week_chart.BorderlineWidth = 0;
             this.Week_chart.BorderSkin.BackColor = System.Drawing.Color.Empty;
             chartArea1.AxisX.IsLabelAutoFit = false;
             chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("맑은 고딕", 10F);
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            chartArea1.AxisX.MajorGrid.LineWidth = 0;
             chartArea1.AxisX.MajorTickMark.Interval = 0D;
             chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorTickMark.Size = 2F;
+            chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
             chartArea1.AxisX.TitleForeColor = System.Drawing.Color.White;
             chartArea1.AxisX2.IsLabelAutoFit = false;
             chartArea1.AxisX2.LabelStyle.Font = new System.Drawing.Font("맑은 고딕", 10F);
@@ -159,19 +176,26 @@
             chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("맑은 고딕", 10F);
             chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
             chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.White;
             chartArea1.AxisY.TitleForeColor = System.Drawing.Color.White;
             chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
             chartArea1.BorderColor = System.Drawing.Color.Empty;
-            chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea1.CursorY.AxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             chartArea1.Name = "ChartArea1";
             this.Week_chart.ChartAreas.Add(chartArea1);
             legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            legend1.Enabled = false;
             legend1.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Bold);
             legend1.ForeColor = System.Drawing.Color.White;
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
+            legend1.Title = "코로나 확진자 수";
             this.Week_chart.Legends.Add(legend1);
             this.Week_chart.Location = new System.Drawing.Point(5, 5);
             this.Week_chart.Name = "Week_chart";
@@ -179,11 +203,14 @@
             series1.BorderWidth = 2;
             series1.ChartArea = "ChartArea1";
             series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            series1.IsValueShownAsLabel = true;
             series1.IsXValueIndexed = true;
             series1.LabelForeColor = System.Drawing.Color.Transparent;
             series1.Legend = "Legend1";
             series1.Name = "확진자";
             series1.ShadowColor = System.Drawing.Color.Empty;
+            series1.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.DodgerBlue;
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.Week_chart.Series.Add(series1);
             this.Week_chart.Size = new System.Drawing.Size(766, 338);
             this.Week_chart.TabIndex = 1;
@@ -223,6 +250,7 @@
             this.Top_Bar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_Title)).EndInit();
             this.Main_Content.ResumeLayout(false);
+            this.Main_Content.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Week_chart)).EndInit();
             this.ResumeLayout(false);
 
@@ -238,6 +266,7 @@
         private System.Windows.Forms.Label lb_Title;
         private System.Windows.Forms.PictureBox Pic_Title;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

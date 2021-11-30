@@ -68,7 +68,7 @@ namespace Civ19_WithCsharp
             dt.Columns.Add(new DataColumn("확진자", typeof(int)));
             for (int index = 0; index < 7; index++)
             {
-                String D_day = createDt[index + 1];
+                String D_day = createDt[index+1];
                 String TodaydecideCnt = (decideCnt[index + 1] - decideCnt[index]).ToString();
                 if (D_day == null)  //if 더이상 출력할 요소가 없다면 종료.
                 {
