@@ -38,12 +38,19 @@
             this.BtnMinmon = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.Main_Content = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.tb_Term = new System.Windows.Forms.TrackBar();
             this.Week_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Btn_Search = new FontAwesome.Sharp.IconButton();
+            this.lb_StartDate = new System.Windows.Forms.Label();
+            this.lb_EndDate = new System.Windows.Forms.Label();
+            this.lb_tilde = new System.Windows.Forms.Label();
+            this.tophidden = new System.Windows.Forms.Panel();
+            this.bothidden = new System.Windows.Forms.Panel();
+            this.lb_date = new System.Windows.Forms.Label();
             this.Top_Bar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_Title)).BeginInit();
             this.Main_Content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_Term)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Week_chart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,32 +115,37 @@
             // Main_Content
             // 
             this.Main_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
-            this.Main_Content.Controls.Add(this.iconButton1);
+            this.Main_Content.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Main_Content.Controls.Add(this.lb_date);
+            this.Main_Content.Controls.Add(this.lb_EndDate);
+            this.Main_Content.Controls.Add(this.lb_StartDate);
+            this.Main_Content.Controls.Add(this.lb_tilde);
+            this.Main_Content.Controls.Add(this.bothidden);
+            this.Main_Content.Controls.Add(this.tophidden);
+            this.Main_Content.Controls.Add(this.tb_Term);
             this.Main_Content.Controls.Add(this.Week_chart);
             this.Main_Content.Controls.Add(this.Btn_Search);
             this.Main_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Main_Content.Location = new System.Drawing.Point(0, 40);
             this.Main_Content.Name = "Main_Content";
             this.Main_Content.Padding = new System.Windows.Forms.Padding(5);
-            this.Main_Content.Size = new System.Drawing.Size(776, 399);
+            this.Main_Content.Size = new System.Drawing.Size(776, 428);
             this.Main_Content.TabIndex = 1;
             // 
-            // iconButton1
+            // tb_Term
             // 
-            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.CalendarAlt;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.iconButton1.Location = new System.Drawing.Point(542, 349);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(117, 45);
-            this.iconButton1.TabIndex = 2;
-            this.iconButton1.Text = "기간고르기";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.tb_Term.Cursor = System.Windows.Forms.Cursors.NoMoveHoriz;
+            this.tb_Term.LargeChange = 1;
+            this.tb_Term.Location = new System.Drawing.Point(377, 375);
+            this.tb_Term.Maximum = 30;
+            this.tb_Term.Minimum = 1;
+            this.tb_Term.Name = "tb_Term";
+            this.tb_Term.RightToLeftLayout = true;
+            this.tb_Term.Size = new System.Drawing.Size(282, 45);
+            this.tb_Term.TabIndex = 1;
+            this.tb_Term.TickFrequency = 7;
+            this.tb_Term.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.tb_Term.Value = 10;
             // 
             // Week_chart
             // 
@@ -148,7 +160,7 @@
             chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("맑은 고딕", 10F);
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
             chartArea1.AxisX.MajorGrid.LineWidth = 0;
             chartArea1.AxisX.MajorTickMark.Interval = 0D;
             chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.White;
@@ -162,11 +174,12 @@
             chartArea1.AxisY.IsLabelAutoFit = false;
             chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("맑은 고딕", 10F);
             chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea1.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea1.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisY.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
             chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
             chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.White;
             chartArea1.AxisY.TitleForeColor = System.Drawing.Color.White;
@@ -211,21 +224,85 @@
             this.Btn_Search.IconColor = System.Drawing.Color.Black;
             this.Btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Btn_Search.IconSize = 30;
-            this.Btn_Search.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.Btn_Search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_Search.Location = new System.Drawing.Point(665, 349);
             this.Btn_Search.Name = "Btn_Search";
-            this.Btn_Search.Size = new System.Drawing.Size(106, 45);
+            this.Btn_Search.Size = new System.Drawing.Size(106, 67);
             this.Btn_Search.TabIndex = 0;
             this.Btn_Search.Text = "불러오기";
             this.Btn_Search.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Btn_Search.UseVisualStyleBackColor = true;
+            // 
+            // lb_StartDate
+            // 
+            this.lb_StartDate.AutoSize = true;
+            this.lb_StartDate.BackColor = System.Drawing.Color.Transparent;
+            this.lb_StartDate.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lb_StartDate.ForeColor = System.Drawing.Color.White;
+            this.lb_StartDate.Location = new System.Drawing.Point(392, 361);
+            this.lb_StartDate.Name = "lb_StartDate";
+            this.lb_StartDate.Size = new System.Drawing.Size(93, 20);
+            this.lb_StartDate.TabIndex = 3;
+            this.lb_StartDate.Text = "0000-00-00";
+            // 
+            // lb_EndDate
+            // 
+            this.lb_EndDate.AutoSize = true;
+            this.lb_EndDate.BackColor = System.Drawing.Color.Transparent;
+            this.lb_EndDate.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lb_EndDate.ForeColor = System.Drawing.Color.White;
+            this.lb_EndDate.Location = new System.Drawing.Point(502, 361);
+            this.lb_EndDate.Name = "lb_EndDate";
+            this.lb_EndDate.Size = new System.Drawing.Size(93, 20);
+            this.lb_EndDate.TabIndex = 4;
+            this.lb_EndDate.Text = "0000-00-00";
+            // 
+            // lb_tilde
+            // 
+            this.lb_tilde.AutoSize = true;
+            this.lb_tilde.BackColor = System.Drawing.Color.Transparent;
+            this.lb_tilde.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lb_tilde.ForeColor = System.Drawing.Color.White;
+            this.lb_tilde.Location = new System.Drawing.Point(468, 361);
+            this.lb_tilde.Name = "lb_tilde";
+            this.lb_tilde.Size = new System.Drawing.Size(50, 20);
+            this.lb_tilde.TabIndex = 5;
+            this.lb_tilde.Text = "   ~   ";
+            // 
+            // tophidden
+            // 
+            this.tophidden.Location = new System.Drawing.Point(377, 375);
+            this.tophidden.Name = "tophidden";
+            this.tophidden.Size = new System.Drawing.Size(282, 10);
+            this.tophidden.TabIndex = 6;
+            // 
+            // bothidden
+            // 
+            this.bothidden.Location = new System.Drawing.Point(377, 406);
+            this.bothidden.Name = "bothidden";
+            this.bothidden.Size = new System.Drawing.Size(282, 10);
+            this.bothidden.TabIndex = 7;
+            // 
+            // lb_date
+            // 
+            this.lb_date.AutoSize = true;
+            this.lb_date.BackColor = System.Drawing.Color.Transparent;
+            this.lb_date.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Bold);
+            this.lb_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.lb_date.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lb_date.Location = new System.Drawing.Point(607, 354);
+            this.lb_date.Name = "lb_date";
+            this.lb_date.Size = new System.Drawing.Size(46, 25);
+            this.lb_date.TabIndex = 8;
+            this.lb_date.Text = " 7일";
+            this.lb_date.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(776, 439);
+            this.ClientSize = new System.Drawing.Size(776, 468);
             this.ControlBox = false;
             this.Controls.Add(this.Main_Content);
             this.Controls.Add(this.Top_Bar);
@@ -237,21 +314,29 @@
             this.Top_Bar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_Title)).EndInit();
             this.Main_Content.ResumeLayout(false);
+            this.Main_Content.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_Term)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Week_chart)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel Top_Bar;
-        private System.Windows.Forms.Button BtnMinmon;
-        private System.Windows.Forms.Button BtnClose;
+        public System.Windows.Forms.Panel Top_Bar;
+        public System.Windows.Forms.Button BtnMinmon;
+        public System.Windows.Forms.Button BtnClose;
+        public System.Windows.Forms.Label lb_Title;
         private System.Windows.Forms.Panel Main_Content;
         private System.Windows.Forms.DataVisualization.Charting.Chart Week_chart;
         private FontAwesome.Sharp.IconButton Btn_Search;
-        private System.Windows.Forms.Label lb_Title;
         private System.Windows.Forms.PictureBox Pic_Title;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.TrackBar tb_Term;
+        private System.Windows.Forms.Label lb_tilde;
+        private System.Windows.Forms.Label lb_EndDate;
+        private System.Windows.Forms.Label lb_StartDate;
+        private System.Windows.Forms.Panel bothidden;
+        private System.Windows.Forms.Panel tophidden;
+        private System.Windows.Forms.Label lb_date;
     }
 }
 
