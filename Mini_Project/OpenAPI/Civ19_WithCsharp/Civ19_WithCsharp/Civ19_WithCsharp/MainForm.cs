@@ -12,11 +12,10 @@ namespace Civ19_WithCsharp
         public MainForm()
         {
             InitializeComponent();
-            this.ControlBox = false;
-            this.Text = string.Empty;
 
             //Controll to TopPanel
-            Top_Bar.MouseUp += panelTop_MouseUp;
+            this.ControlBox = false;
+            this.Text = string.Empty;
             Top_Bar.MouseDown += panelTop_MouseDown;
             Top_Bar.MouseMove += panelTop_MouseMove;
             lb_Title.MouseUp += panelTop_MouseUp;
@@ -24,7 +23,11 @@ namespace Civ19_WithCsharp
             lb_Title.MouseMove += panelTop_MouseMove;
             BtnClose.Click += Btn_Close;
             BtnMinmon.Click += Btn_Minmon;
-
+            ////////////////////////
+            tb_Term.Value = 7;
+            lb_StartDate.Text = DateTime.Now.AddDays(-7).ToShortDateString();
+            lb_EndDate.Text = DateTime.Now.AddDays(-1).ToShortDateString();
+            tb_Term.Scroll += Tb_Term_Scroll;
             Btn_Search.Click += Btn_Search_Click;
         }
 
@@ -53,7 +56,6 @@ namespace Civ19_WithCsharp
             File.Delete("Civ19.xml");
             this.Close();
         }
-
         private void Btn_Minmon(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -61,12 +63,12 @@ namespace Civ19_WithCsharp
         //////////////////////////////////////////////////
 
         DataTable dt;
-        private void Datatable(String[] createDt, int[] decideCnt)
+        private void Datatable(String[] createDt, int[] decideCnt, int length)
         {
             dt = new DataTable();
             dt.Columns.Add(new DataColumn("날짜", typeof(string)));
             dt.Columns.Add(new DataColumn("확진자", typeof(int)));
-            for (int index = 0; index < 7; index++)
+            for (int index = 0; index < length; index++)
             {
                 String D_day = createDt[index+1];
                 String TodaydecideCnt = (decideCnt[index + 1] - decideCnt[index]).ToString();
@@ -77,9 +79,8 @@ namespace Civ19_WithCsharp
                 dt.Rows.Add(D_day, TodaydecideCnt);
             }
         }
-
         Chart chart;
-        private void CoivChart(DataTable dt)
+        private void CoivChart(DataTable dt)//Art Chart
         {
             chart = this.Week_chart;
             chart.Series.Clear();
@@ -87,46 +88,45 @@ namespace Civ19_WithCsharp
             series.XValueMember = "날짜";
             series.YValueMembers = "확진자";
             chart.DataSource = dt;
-            series.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            series.Color = System.Drawing.Color.FromArgb(
+                                                            ((int)(((byte)(240)))), 
+                                                            ((int)(((byte)(084)))), 
+                                                            ((int)(((byte)(084))))
+                                                            );
             chart.DataBind();
             chart.Visible = true;
-
         }
 
-        private void ChoiceWhen_Click(object sender, EventArgs e)
-        {
 
+        int length = 7;
+        private void Tb_Term_Scroll(object sender, EventArgs e)
+        {
+            OpenApi openApi = new OpenApi();
+            length = tb_Term.Value;
+            if(length < 10) lb_date.Text = " " + length.ToString() + "일";
+            else lb_date.Text = length.ToString() + "일";
+            lb_StartDate.Text = DateTime.Now.AddDays(-length).ToShortDateString();
         }
 
         private async void Btn_Search_Click(object sender, EventArgs e)
         {
             Thread.Sleep(100);
             OpenApi openApi = new OpenApi();
-            String results = await openApi.OpenApiGetData(ApiKey.Getkey());
+            String results = await openApi.OpenApiGetData(ApiKey.Getkey(), length);
             openApi.DataToXml(results); //Make Civ19.xml
 
             try
             {
-                String[] createDt = new string[8];
-                openApi.XmlParsing_String(createDt, 5, 5, "createDt");
+                String[] createDt = new string[length+1];
+                openApi.XmlParsing_StringArray(createDt, length, 5, 5, "createDt");
 
-                int[] decideCnt = new int[8];
-                openApi.XmlParsing_Int(decideCnt, "decideCnt");
+                int[] decideCnt = new int[length+1];
+                openApi.XmlParsing_IntArray(decideCnt, length, "decideCnt");
 
-                string mess = string.Empty;
-                foreach (string dt in createDt)
-                {
-                    mess += dt + ", ";
-                }
-                mess += "\n";
-                foreach(int i in decideCnt)
-                {
-                    mess += i.ToString() + ", ";
-                }
-                MessageBox.Show(mess);
+                string message = lb_StartDate.Text + " ~ " + lb_EndDate.Text + "\n불러왔습니다.";
+                MessageBox.Show(message);
 
-
-                Datatable(createDt, decideCnt);
+                Datatable(createDt, decideCnt, length);
 
                 if (!string.IsNullOrEmpty(createDt[1]))
                 {
