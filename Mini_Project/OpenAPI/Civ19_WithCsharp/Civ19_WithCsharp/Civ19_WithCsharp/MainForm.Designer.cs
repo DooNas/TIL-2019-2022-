@@ -38,7 +38,6 @@
             this.BtnMinmon = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.Main_Content = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.Week_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Btn_Search = new FontAwesome.Sharp.IconButton();
@@ -109,7 +108,6 @@
             // Main_Content
             // 
             this.Main_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
-            this.Main_Content.Controls.Add(this.label1);
             this.Main_Content.Controls.Add(this.iconButton1);
             this.Main_Content.Controls.Add(this.Week_chart);
             this.Main_Content.Controls.Add(this.Btn_Search);
@@ -119,17 +117,6 @@
             this.Main_Content.Padding = new System.Windows.Forms.Padding(5);
             this.Main_Content.Size = new System.Drawing.Size(776, 399);
             this.Main_Content.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(36, 361);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "2021-11-23";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // iconButton1
             // 
@@ -250,7 +237,6 @@
             this.Top_Bar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_Title)).EndInit();
             this.Main_Content.ResumeLayout(false);
-            this.Main_Content.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Week_chart)).EndInit();
             this.ResumeLayout(false);
 
@@ -266,7 +252,6 @@
         private System.Windows.Forms.Label lb_Title;
         private System.Windows.Forms.PictureBox Pic_Title;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.Label label1;
     }
 }
 

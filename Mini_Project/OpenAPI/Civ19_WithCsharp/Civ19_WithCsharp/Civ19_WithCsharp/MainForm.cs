@@ -87,7 +87,11 @@ namespace Civ19_WithCsharp
             series.XValueMember = "날짜";
             series.YValueMembers = "확진자";
             chart.DataSource = dt;
-            series.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            series.Color = System.Drawing.Color.FromArgb(
+                                                            ((int)(((byte)(240)))), 
+                                                            ((int)(((byte)(084)))), 
+                                                            ((int)(((byte)(084))))
+                                                            );
             chart.DataBind();
             chart.Visible = true;
 
