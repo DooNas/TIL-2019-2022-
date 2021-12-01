@@ -17,7 +17,7 @@ namespace Civ19_WithCsharp
 
         public String Todate() //금일 기준 7일전 날짜
         {
-            String date = DateTime.Now.ToShortDateString();
+            String date = DateTime.Now.AddDays(-1).ToShortDateString();
             date = String.Join("", date.Split('-'));
             return date;
         }
@@ -67,7 +67,7 @@ namespace Civ19_WithCsharp
             xml.Load("Civ19.xml");
 
             XmlNodeList xnList = xml.SelectNodes("/response/body/items/item"); //접근할 노드
-            int i = 8;
+            int i = 7;
             foreach (XmlNode xn in xnList)
             {
                 array[i] = xn[node].InnerText.Substring(Start, End); //문자형 node 데이터 추출
@@ -81,7 +81,7 @@ namespace Civ19_WithCsharp
             xml.Load("Civ19.xml");
 
             XmlNodeList xnList = xml.SelectNodes("/response/body/items/item"); //접근할 노드
-            int i = 8;
+            int i = 7;
             foreach (XmlNode xn in xnList)
             {
                 array[i] = int.Parse(xn[node].InnerText); //정수형 node 데이터 추출

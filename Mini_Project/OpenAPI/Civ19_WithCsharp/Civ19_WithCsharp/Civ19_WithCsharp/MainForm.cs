@@ -107,11 +107,24 @@ namespace Civ19_WithCsharp
 
             try
             {
-                String[] createDt = new string[9];
+                String[] createDt = new string[8];
                 openApi.XmlParsing_String(createDt, 5, 5, "createDt");
 
-                int[] decideCnt = new int[9];
+                int[] decideCnt = new int[8];
                 openApi.XmlParsing_Int(decideCnt, "decideCnt");
+
+                string mess = string.Empty;
+                foreach (string dt in createDt)
+                {
+                    mess += dt + ", ";
+                }
+                mess += "\n";
+                foreach(int i in decideCnt)
+                {
+                    mess += i.ToString() + ", ";
+                }
+                MessageBox.Show(mess);
+
 
                 Datatable(createDt, decideCnt);
 
