@@ -12,7 +12,7 @@ namespace Civ19_WithCsharp
         public MainForm()
         {
             InitializeComponent();
-
+            CheckData();
             //Controll to TopPanel
             this.ControlBox = false;
             this.Text = string.Empty;
@@ -110,6 +110,11 @@ namespace Civ19_WithCsharp
 
         private async void Btn_Search_Click(object sender, EventArgs e)
         {
+            CheckData(true);
+        }
+
+        private async void CheckData(bool Message = false)
+        {
             Thread.Sleep(100);
             OpenApi openApi = new OpenApi();
             String results = await openApi.OpenApiGetData(ApiKey.Getkey(), length);
@@ -117,14 +122,16 @@ namespace Civ19_WithCsharp
 
             try
             {
-                String[] createDt = new string[length+1];
+                String[] createDt = new string[length + 1];
                 openApi.XmlParsing_StringArray(createDt, length, 5, 5, "createDt");
 
-                int[] decideCnt = new int[length+1];
+                int[] decideCnt = new int[length + 1];
                 openApi.XmlParsing_IntArray(decideCnt, length, "decideCnt");
-
-                string message = lb_StartDate.Text + " ~ " + lb_EndDate.Text + "\n불러왔습니다.";
-                MessageBox.Show(message);
+                if (Message)
+                {
+                    string message = lb_StartDate.Text + " ~ " + lb_EndDate.Text + "\n불러왔습니다.";
+                    MessageBox.Show(message);
+                }
 
                 Datatable(createDt, decideCnt, length);
 

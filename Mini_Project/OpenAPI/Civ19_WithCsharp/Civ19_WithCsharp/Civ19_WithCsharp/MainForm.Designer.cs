@@ -38,15 +38,15 @@
             this.BtnMinmon = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.Main_Content = new System.Windows.Forms.Panel();
+            this.lb_date = new System.Windows.Forms.Label();
+            this.lb_EndDate = new System.Windows.Forms.Label();
+            this.lb_StartDate = new System.Windows.Forms.Label();
+            this.lb_tilde = new System.Windows.Forms.Label();
+            this.bothidden = new System.Windows.Forms.Panel();
+            this.tophidden = new System.Windows.Forms.Panel();
             this.tb_Term = new System.Windows.Forms.TrackBar();
             this.Week_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Btn_Search = new FontAwesome.Sharp.IconButton();
-            this.lb_StartDate = new System.Windows.Forms.Label();
-            this.lb_EndDate = new System.Windows.Forms.Label();
-            this.lb_tilde = new System.Windows.Forms.Label();
-            this.tophidden = new System.Windows.Forms.Panel();
-            this.bothidden = new System.Windows.Forms.Panel();
-            this.lb_date = new System.Windows.Forms.Label();
             this.Top_Bar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_Title)).BeginInit();
             this.Main_Content.SuspendLayout();
@@ -131,6 +131,70 @@
             this.Main_Content.Padding = new System.Windows.Forms.Padding(5);
             this.Main_Content.Size = new System.Drawing.Size(776, 428);
             this.Main_Content.TabIndex = 1;
+            // 
+            // lb_date
+            // 
+            this.lb_date.AutoSize = true;
+            this.lb_date.BackColor = System.Drawing.Color.Transparent;
+            this.lb_date.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Bold);
+            this.lb_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.lb_date.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lb_date.Location = new System.Drawing.Point(607, 354);
+            this.lb_date.Name = "lb_date";
+            this.lb_date.Size = new System.Drawing.Size(46, 25);
+            this.lb_date.TabIndex = 8;
+            this.lb_date.Text = " 7일";
+            this.lb_date.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lb_EndDate
+            // 
+            this.lb_EndDate.AutoSize = true;
+            this.lb_EndDate.BackColor = System.Drawing.Color.Transparent;
+            this.lb_EndDate.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lb_EndDate.ForeColor = System.Drawing.Color.White;
+            this.lb_EndDate.Location = new System.Drawing.Point(502, 361);
+            this.lb_EndDate.Name = "lb_EndDate";
+            this.lb_EndDate.Size = new System.Drawing.Size(93, 20);
+            this.lb_EndDate.TabIndex = 4;
+            this.lb_EndDate.Text = "0000-00-00";
+            // 
+            // lb_StartDate
+            // 
+            this.lb_StartDate.AutoSize = true;
+            this.lb_StartDate.BackColor = System.Drawing.Color.Transparent;
+            this.lb_StartDate.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lb_StartDate.ForeColor = System.Drawing.Color.White;
+            this.lb_StartDate.Location = new System.Drawing.Point(392, 361);
+            this.lb_StartDate.Name = "lb_StartDate";
+            this.lb_StartDate.Size = new System.Drawing.Size(93, 20);
+            this.lb_StartDate.TabIndex = 3;
+            this.lb_StartDate.Text = "0000-00-00";
+            // 
+            // lb_tilde
+            // 
+            this.lb_tilde.AutoSize = true;
+            this.lb_tilde.BackColor = System.Drawing.Color.Transparent;
+            this.lb_tilde.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lb_tilde.ForeColor = System.Drawing.Color.White;
+            this.lb_tilde.Location = new System.Drawing.Point(468, 361);
+            this.lb_tilde.Name = "lb_tilde";
+            this.lb_tilde.Size = new System.Drawing.Size(50, 20);
+            this.lb_tilde.TabIndex = 5;
+            this.lb_tilde.Text = "   ~   ";
+            // 
+            // bothidden
+            // 
+            this.bothidden.Location = new System.Drawing.Point(377, 406);
+            this.bothidden.Name = "bothidden";
+            this.bothidden.Size = new System.Drawing.Size(282, 10);
+            this.bothidden.TabIndex = 7;
+            // 
+            // tophidden
+            // 
+            this.tophidden.Location = new System.Drawing.Point(377, 375);
+            this.tophidden.Name = "tophidden";
+            this.tophidden.Size = new System.Drawing.Size(282, 10);
+            this.tophidden.TabIndex = 6;
             // 
             // tb_Term
             // 
@@ -232,70 +296,6 @@
             this.Btn_Search.Text = "불러오기";
             this.Btn_Search.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Btn_Search.UseVisualStyleBackColor = true;
-            // 
-            // lb_StartDate
-            // 
-            this.lb_StartDate.AutoSize = true;
-            this.lb_StartDate.BackColor = System.Drawing.Color.Transparent;
-            this.lb_StartDate.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lb_StartDate.ForeColor = System.Drawing.Color.White;
-            this.lb_StartDate.Location = new System.Drawing.Point(392, 361);
-            this.lb_StartDate.Name = "lb_StartDate";
-            this.lb_StartDate.Size = new System.Drawing.Size(93, 20);
-            this.lb_StartDate.TabIndex = 3;
-            this.lb_StartDate.Text = "0000-00-00";
-            // 
-            // lb_EndDate
-            // 
-            this.lb_EndDate.AutoSize = true;
-            this.lb_EndDate.BackColor = System.Drawing.Color.Transparent;
-            this.lb_EndDate.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lb_EndDate.ForeColor = System.Drawing.Color.White;
-            this.lb_EndDate.Location = new System.Drawing.Point(502, 361);
-            this.lb_EndDate.Name = "lb_EndDate";
-            this.lb_EndDate.Size = new System.Drawing.Size(93, 20);
-            this.lb_EndDate.TabIndex = 4;
-            this.lb_EndDate.Text = "0000-00-00";
-            // 
-            // lb_tilde
-            // 
-            this.lb_tilde.AutoSize = true;
-            this.lb_tilde.BackColor = System.Drawing.Color.Transparent;
-            this.lb_tilde.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lb_tilde.ForeColor = System.Drawing.Color.White;
-            this.lb_tilde.Location = new System.Drawing.Point(468, 361);
-            this.lb_tilde.Name = "lb_tilde";
-            this.lb_tilde.Size = new System.Drawing.Size(50, 20);
-            this.lb_tilde.TabIndex = 5;
-            this.lb_tilde.Text = "   ~   ";
-            // 
-            // tophidden
-            // 
-            this.tophidden.Location = new System.Drawing.Point(377, 375);
-            this.tophidden.Name = "tophidden";
-            this.tophidden.Size = new System.Drawing.Size(282, 10);
-            this.tophidden.TabIndex = 6;
-            // 
-            // bothidden
-            // 
-            this.bothidden.Location = new System.Drawing.Point(377, 406);
-            this.bothidden.Name = "bothidden";
-            this.bothidden.Size = new System.Drawing.Size(282, 10);
-            this.bothidden.TabIndex = 7;
-            // 
-            // lb_date
-            // 
-            this.lb_date.AutoSize = true;
-            this.lb_date.BackColor = System.Drawing.Color.Transparent;
-            this.lb_date.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Bold);
-            this.lb_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.lb_date.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lb_date.Location = new System.Drawing.Point(607, 354);
-            this.lb_date.Name = "lb_date";
-            this.lb_date.Size = new System.Drawing.Size(46, 25);
-            this.lb_date.TabIndex = 8;
-            this.lb_date.Text = " 7일";
-            this.lb_date.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainForm
             // 
