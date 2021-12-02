@@ -57,6 +57,7 @@
             // Top_Bar
             // 
             this.Top_Bar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.Top_Bar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Top_Bar.Controls.Add(this.lb_Title);
             this.Top_Bar.Controls.Add(this.Pic_Title);
             this.Top_Bar.Controls.Add(this.BtnMinmon);
@@ -65,7 +66,7 @@
             this.Top_Bar.Location = new System.Drawing.Point(0, 0);
             this.Top_Bar.Name = "Top_Bar";
             this.Top_Bar.Padding = new System.Windows.Forms.Padding(5);
-            this.Top_Bar.Size = new System.Drawing.Size(776, 40);
+            this.Top_Bar.Size = new System.Drawing.Size(776, 43);
             this.Top_Bar.TabIndex = 0;
             // 
             // lb_Title
@@ -87,7 +88,7 @@
             this.Pic_Title.InitialImage = null;
             this.Pic_Title.Location = new System.Drawing.Point(5, 5);
             this.Pic_Title.Name = "Pic_Title";
-            this.Pic_Title.Size = new System.Drawing.Size(30, 30);
+            this.Pic_Title.Size = new System.Drawing.Size(30, 31);
             this.Pic_Title.TabIndex = 2;
             this.Pic_Title.TabStop = false;
             // 
@@ -95,7 +96,7 @@
             // 
             this.BtnMinmon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnMinmon.Image = global::Civ19_WithCsharp.Properties.Resources.minimize;
-            this.BtnMinmon.Location = new System.Drawing.Point(705, 5);
+            this.BtnMinmon.Location = new System.Drawing.Point(703, 5);
             this.BtnMinmon.Name = "BtnMinmon";
             this.BtnMinmon.Size = new System.Drawing.Size(30, 30);
             this.BtnMinmon.TabIndex = 1;
@@ -106,9 +107,9 @@
             // 
             this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnClose.Image = global::Civ19_WithCsharp.Properties.Resources.Close;
-            this.BtnClose.Location = new System.Drawing.Point(741, 5);
+            this.BtnClose.Location = new System.Drawing.Point(739, 5);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(30, 30);
+            this.BtnClose.Size = new System.Drawing.Size(30, 31);
             this.BtnClose.TabIndex = 0;
             this.BtnClose.UseVisualStyleBackColor = true;
             // 
@@ -116,6 +117,7 @@
             // 
             this.Main_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
             this.Main_Content.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Main_Content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Main_Content.Controls.Add(this.lb_date);
             this.Main_Content.Controls.Add(this.lb_EndDate);
             this.Main_Content.Controls.Add(this.lb_StartDate);
@@ -126,10 +128,10 @@
             this.Main_Content.Controls.Add(this.Week_chart);
             this.Main_Content.Controls.Add(this.Btn_Search);
             this.Main_Content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Main_Content.Location = new System.Drawing.Point(0, 40);
+            this.Main_Content.Location = new System.Drawing.Point(0, 43);
             this.Main_Content.Name = "Main_Content";
             this.Main_Content.Padding = new System.Windows.Forms.Padding(5);
-            this.Main_Content.Size = new System.Drawing.Size(776, 428);
+            this.Main_Content.Size = new System.Drawing.Size(776, 425);
             this.Main_Content.TabIndex = 1;
             // 
             // lb_date
@@ -276,7 +278,7 @@
             series1.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.DodgerBlue;
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.Week_chart.Series.Add(series1);
-            this.Week_chart.Size = new System.Drawing.Size(766, 338);
+            this.Week_chart.Size = new System.Drawing.Size(764, 333);
             this.Week_chart.TabIndex = 1;
             this.Week_chart.Visible = false;
             // 
@@ -289,7 +291,7 @@
             this.Btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Btn_Search.IconSize = 30;
             this.Btn_Search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Search.Location = new System.Drawing.Point(665, 349);
+            this.Btn_Search.Location = new System.Drawing.Point(663, 344);
             this.Btn_Search.Name = "Btn_Search";
             this.Btn_Search.Size = new System.Drawing.Size(106, 67);
             this.Btn_Search.TabIndex = 0;

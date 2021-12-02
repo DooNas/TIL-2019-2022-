@@ -108,7 +108,7 @@ namespace Civ19_WithCsharp
             lb_StartDate.Text = DateTime.Now.AddDays(-length).ToShortDateString();
         }
 
-        private async void Btn_Search_Click(object sender, EventArgs e)
+        private void Btn_Search_Click(object sender, EventArgs e)
         {
             CheckData(true);
         }
