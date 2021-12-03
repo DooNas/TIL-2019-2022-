@@ -1,8 +1,0 @@
-D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\OpenAPI\OpenAPI\bin\Debug\OpenAPI.exe.config
-D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\OpenAPI\OpenAPI\bin\Debug\OpenAPI.exe
-D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\OpenAPI\OpenAPI\bin\Debug\OpenAPI.pdb
-D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\OpenAPI\OpenAPI\obj\Debug\OpenAPI.csproj.AssemblyReference.cache
-D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\OpenAPI\OpenAPI\obj\Debug\OpenAPI.csproj.SuggestedBindingRedirects.cache
-D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\OpenAPI\OpenAPI\obj\Debug\OpenAPI.csproj.CoreCompileInputs.cache
-D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\OpenAPI\OpenAPI\obj\Debug\OpenAPI.exe
-D:\Project_ForCoding\TIL\Mini_Project\OpenAPI\OpenAPI\OpenAPI\obj\Debug\OpenAPI.pdb
