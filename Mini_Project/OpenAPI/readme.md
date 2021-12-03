@@ -53,7 +53,7 @@
     * `panelTop_MouseMove(object sender, EventArgs e)`
     * `Btn_Minmon(object sender, EventArgs e)`
     * `Btn_Close(object sender, EventArgs e)`
-* [OpenApi.cs](#openapi.cs)
+* OpenApi.cs
   * `OpenApiGetData(String key, int length)`
   * `Todate()`
   * `datebefore(int length)`
@@ -63,10 +63,98 @@
 * ## Key.cs
   * ### `GetKey()`
 
+---
+---
+# Program.cs
+* ## `Main()`
+```cs
+static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm());
+        }
+```
 
+</br></br></br>
+# MainForm.cs
+* ## `InitializeComponent()`
+```cs
+
+```
+
+</br></br></br>
+* ## `CheckData(bool Message = false)`
+```cs
+
+```
+
+</br></br></br>
+* ## `Datatable(String[] createDt, int[] decideCnt, int length)`
+```cs
+
+```
+
+</br></br></br>
+* ## `CoivChart(Datatable dt)`
+```cs
+
+```
+
+</br></br></br>
+* ## Event 
+  * ## `Tb_Term_Scroll(object sender, EventArgs e)`
+    ```cs
+
+    ```
+    
+    </br></br></br>
+  * ## `Btn_Search_Click(object sender, EventArgs e)`
+    ```cs
+
+    ```
+    
+    </br></br></br>
+* ## Top_Bar Custom
+  * ## `panelTop_MouseUp(object sender, MouseEventArgs e)`
+    ```cs
+
+    ```
+    
+    </br></br></br>
+  * ## `panelTop_MouseDown(object sender, MouseEventArgs e)`
+    ```cs
+
+    ```
+    
+    </br></br></br>
+  * ## `panelTop_MouseMove(object sender, MouseEventArgs e)`
+    ```cs
+
+    ```
+    
+    </br></br></br>
+  * ## `panelTop_MouseMove(object sender, EventArgs e)`
+    ```cs
+
+    ```
+    
+    </br></br></br>
+  * ## `Btn_Minmon(object sender, EventArgs e)`
+    ```cs
+
+    ```
+
+    </br></br></br>
+  * ## `Btn_Close(object sender, EventArgs e)`
+    ```cs
+
+    ```
+
+
+</br></br></br>
 # OpenApi.cs
-
-## `OpenApiGetData(String key, int length)`
+* ## `OpenApiGetData(String key, int length)`
 이번 프로젝트의 메인으로써 [공공 데이터 포털](https://www.data.go.kr/)에서 Xml을 파싱해오는 역할을 하는 메서드입니다.
 ```csharp
 static HttpClient client = new HttpClient();
@@ -175,4 +263,93 @@ string url = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19I
             return results;
 ```
 > 이부분은 나도 잘 모른다.  
-> 다만, `HttpWebRequest`을 통해 [공공 데이터 포털](https://www.data.go.kr/)에서 파싱한 것을 `String`형으로 `results`에 저장하고 최종적으로 `results`값을 반환하는 것으로 알고 있다.
+> 다만, `HttpWebRequest`을 통해 [코로나바이러스](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15043376)에서 파싱한 것을 `String`형으로 `results`에 저장하고 최종적으로 `results`값을 반환하는 것으로 알고 있다.  
+
+</br></br></br>
+  
+* ## `Todate()`
+ `OpenApiGetData(String key, int length)`에 보낼 `endCreateDt`날짜를 보내는 메소드이다.
+```cs
+public String Todate() //금일 기준 7일전 날짜
+        {
+            String date = DateTime.Now.AddDays(-1).ToShortDateString();
+            date = String.Join("", date.Split('-'));
+            return date;
+        }
+```
+금일 기준으로 `DataTime`형의 `2021-12-03`을 보낼 수 있도록 `20211203`형태로 바꾸어 보내주는 메소드이다.
+> [코로나바이러스](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15043376)에서 파싱되는 값은 최신값이 금일 기준으로 전날 데이터뿐이라 금일에서 하루를 뺌으로써 유지한다.
+
+</br></br></br>
+  
+* ## `datebefore(int length)`
+ `OpenApiGetData(String key, int length)`에 보낼 `startCreateDt`날짜를 보내는 메소드이다.
+```cs
+public String datebefore(int length) //금일 기준 7일전 날짜
+        {
+            String date = DateTime.Now.AddDays(-(length+1)).ToShortDateString();
+            date = String.Join("",date.Split('-'));
+            return date;
+        }
+```
+금일 기준으로 `DataTime`형의 `2021-11-27`을 보낼 수 있도록 `20211127`형태로 바꾸어 보내주는 메소드이다.
+> [코로나바이러스](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15043376)에서 나오는 값이 총 확진자 수인 만큼 금일 확진자 수를 계하기 위해 입력된 값보다 하루 더 파싱한다.
+
+</br></br></br>
+  
+* ## `DataToXml(String results)`
+`OpenApiGetData(String key, int length)`에서 받은 `results`값을 가져와 `xml`파일로 만든다.
+```cs
+public void DataToXml(String results)//Make Civ19.xml
+        {
+            StreamWriter writer;
+            writer = File.CreateText("Civ19.xml");
+            writer.Write(results);
+            writer.Close();
+        }
+```
+> 갖고 있는 Xml에서 데이터를 파싱하는 메소드는 `.xml`파일 한정으로 가능하기 때문에 만든다.  
+
+</br></br></br>
+  
+* ## `XmlParsing_StringArray(String[] array, int length, int Start, int End, String node)`
+`.xml`에서 `node`를 기준으로 원하는 `String`값을 가져온다.
+```cs
+public void XmlParsing_StringArray(String[] array, int length, int Start, int End, String node)
+        {
+            //xml에서 어떻게 해야 현제 확진자 수를 추출할 수 있을까?
+            XmlDocument xml = new XmlDocument();
+            xml.Load("Civ19.xml");
+
+            XmlNodeList xnList = xml.SelectNodes("/response/body/items/item"); //접근할 노드
+            int i = length;
+            foreach (XmlNode xn in xnList)
+            {
+                array[i] = xn[node].InnerText.Substring(Start, End); //문자형 node 데이터 추출
+                i--;
+            }
+        }
+```
+> `Start`와 `End`는 파싱할 데이터의 크기에서 원하는 부분만 가져올 수 있도록 조치한 것이다.
+
+</br></br></br>
+  
+* ## `XmlParsing_IntArray(int[] array, int length, String node)`
+`.xml`에서 `node`를 기준으로 원하는 `int`값을 가져온다.
+```cs
+public void XmlParsing_IntArray(int[] array, int length, String node)
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load("Civ19.xml");
+
+            XmlNodeList xnList = xml.SelectNodes("/response/body/items/item"); //접근할 노드
+            int i = length;
+            foreach (XmlNode xn in xnList)
+            {
+                array[i] = int.Parse(xn[node].InnerText); //정수형 node 데이터 추출
+                i--;
+            }
+        }
+```
+> `XmlParsing_StringArray(String[] array, int length, int Start, int End, String node)`와 다르게  
+> 정수형이기 때문에 값의 특정부분을 고를 이유가 없기 때문에 바로 파싱한다.
