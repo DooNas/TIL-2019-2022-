@@ -75,47 +75,135 @@ static void Main()
             Application.Run(new MainForm());
         }
 ```
+`Application` 클래스는 윈도우 응용 프로그램을 시작 / 종료 시키는 메서드를 제공하고 윈도우 메시지를 처리합니다.
+```cs
+Application.EnableVisualStyles();
+```
+> Form의 형태를 결정하는 요소이다.
+```cs
+Application.SetCompatibleTextRenderingDefault(false);
+```
+> `WinForm` 컨트롤들의 `UseCompatibleTextRendering`속성에 대한 기본값을 설정하는 역할이다.
+> 현재로써는 사용할 이유가 없기 때문에 `False`값을 주었다.
+``` cs
+Application.Run(new MainForm());
+```
+> 앞으로 사용할 `Form`을 실행 시킨다.
 
 </br></br></br>
 # MainForm.cs
 * ## `InitializeComponent()`
 ```cs
-
+    ... 양이 많은 관계로 스킵하겠습니다.
 ```
-
+`WinForm`의 외형을 구현하는 것과 동시에 관련 객체를 선언하는 메소드입니다.
 </br></br></br>
 * ## `CheckData(bool Message = false)`
 ```cs
+private async void CheckData(bool Message = false)
+        {
+            Thread.Sleep(100);
+            OpenApi openApi = new OpenApi();
+            String results = await openApi.OpenApiGetData(ApiKey.Getkey(), length);
+            openApi.DataToXml(results); //Make Civ19.xml
 
+            try
+            {
+                String[] createDt = new string[length + 1];
+                openApi.XmlParsing_StringArray(createDt, length, 5, 5, "createDt");
+
+                int[] decideCnt = new int[length + 1];
+                openApi.XmlParsing_IntArray(decideCnt, length, "decideCnt");
+                if (Message)
+                {
+                    string message = lb_StartDate.Text + " ~ " + lb_EndDate.Text + "\n불러왔습니다.";
+                    MessageBox.Show(message);
+                }
+
+                Datatable(createDt, decideCnt, length);
+
+                if (!string.IsNullOrEmpty(createDt[1]))
+                {
+                    CoivChart(dt);
+                }
+
+            }
+            catch (ArgumentException ex) { MessageBox.Show("XML 문제 발생\r\n" + ex); }
+            catch (NullReferenceException ex) { MessageBox.Show("OpenApi호출문제 발생\r\n" + ex); }
+        }
 ```
 
 </br></br></br>
 * ## `Datatable(String[] createDt, int[] decideCnt, int length)`
 ```cs
-
+private void Datatable(String[] createDt, int[] decideCnt, int length)
+        {
+            dt = new DataTable();
+            dt.Columns.Add(new DataColumn("날짜", typeof(string)));
+            dt.Columns.Add(new DataColumn("확진자", typeof(int)));
+            for (int index = 0; index < length; index++)
+            {
+                String D_day = createDt[index+1];
+                String TodaydecideCnt = (decideCnt[index + 1] - decideCnt[index]).ToString();
+                if (D_day == null)  //if 더이상 출력할 요소가 없다면 종료.
+                {
+                    return;
+                }
+                dt.Rows.Add(D_day, TodaydecideCnt);
+            }
+        }
 ```
 
 </br></br></br>
 * ## `CoivChart(Datatable dt)`
 ```cs
-
+private void CoivChart(DataTable dt)//Art Chart
+        {
+            chart = this.Week_chart;
+            chart.Series.Clear();
+            var series = chart.Series.Add("확진자");
+            series.XValueMember = "날짜";
+            series.YValueMembers = "확진자";
+            chart.DataSource = dt;
+            series.Color = System.Drawing.Color.FromArgb(
+                                                            ((int)(((byte)(240)))), 
+                                                            ((int)(((byte)(084)))), 
+                                                            ((int)(((byte)(084))))
+                                                            );
+            chart.DataBind();
+            chart.Visible = true;
+        }
 ```
 
 </br></br></br>
 * ## Event 
   * ## `Tb_Term_Scroll(object sender, EventArgs e)`
     ```cs
-
+    private void Tb_Term_Scroll(object sender, EventArgs e)
+            {
+                OpenApi openApi = new OpenApi();
+                length = tb_Term.Value;
+                if(length < 10) lb_date.Text = " " + length.ToString() + "일";
+                else lb_date.Text = length.ToString() + "일";
+                lb_StartDate.Text = DateTime.Now.AddDays(-length).ToShortDateString();
+            }
     ```
     
     </br></br></br>
   * ## `Btn_Search_Click(object sender, EventArgs e)`
     ```cs
-
+    private void Btn_Search_Click(object sender, EventArgs e)
+            {
+                CheckData(true);
+            }
     ```
     
     </br></br></br>
 * ## Top_Bar Custom
+   ```cs
+   bool isMove;
+   int MouseX, MouseY;
+   ```
   * ## `panelTop_MouseUp(object sender, MouseEventArgs e)`
     ```cs
 
