@@ -72,7 +72,10 @@ namespace Civ19_WithCsharp
             foreach (XmlNode xn in xnList)
             {
                 array[i] = xn[node].InnerText.Substring(Start, End); //문자형 node 데이터 추출
-                i--;
+                if (i != 0)
+                {
+                    i--;
+                }
             }
         }
 
@@ -86,7 +89,10 @@ namespace Civ19_WithCsharp
             foreach (XmlNode xn in xnList)
             {
                 array[i] = int.Parse(xn[node].InnerText); //정수형 node 데이터 추출
-                i--;
+                if(i != 0)
+                {
+                    i--;
+                }
             }
         }
 

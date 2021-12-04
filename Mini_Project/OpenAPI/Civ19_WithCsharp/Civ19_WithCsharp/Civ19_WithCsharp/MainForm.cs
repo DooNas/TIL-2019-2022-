@@ -102,7 +102,7 @@ namespace Civ19_WithCsharp
         private void Tb_Term_Scroll(object sender, EventArgs e)
         {
             OpenApi openApi = new OpenApi();
-            length = tb_Term.Value;
+            tb_Term.Value = length;
             if(length < 10) lb_date.Text = " " + length.ToString() + "일";
             else lb_date.Text = length.ToString() + "일";
             lb_StartDate.Text = DateTime.Now.AddDays(-length).ToShortDateString();
@@ -127,14 +127,27 @@ namespace Civ19_WithCsharp
 
                 int[] decideCnt = new int[length + 1];
                 openApi.XmlParsing_IntArray(decideCnt, length, "decideCnt");
+
+                String d = string.Empty;
+                foreach(String i in createDt)
+                {
+                    d += i + ", ";
+                }
+                d += "\n";
+                foreach(int i in decideCnt)
+                {
+                    d += i.ToString() + ", ";
+                }
+                MessageBox.Show(d);
+                /*
                 if (Message)
                 {
                     string message = lb_StartDate.Text + " ~ " + lb_EndDate.Text + "\n불러왔습니다.";
                     MessageBox.Show(message);
                 }
-
+                */
                 Datatable(createDt, decideCnt, length);
-
+                CoivChart(dt);
                 if (!string.IsNullOrEmpty(createDt[1]))
                 {
                     CoivChart(dt);

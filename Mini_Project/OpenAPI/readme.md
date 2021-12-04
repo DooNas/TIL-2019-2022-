@@ -30,11 +30,11 @@
 > ![End](https://user-images.githubusercontent.com/40691856/144242628-b9c510a4-918c-462d-85e5-34a8a6671e51.gif) 
   
 # 플로우 차트
-  
+<p align="center"><img src="https://user-images.githubusercontent.com/40691856/144711204-ee9e1447-2f9b-471f-ace0-e6552eb757ce.png"></p>
 
 
-
-
+---
+---
 # 코드 리뷰
 * Program.cs
   * `Main()`
@@ -67,6 +67,7 @@
 ---
 # Program.cs
 * ## `Main()`
+  실행을 위한 메인 클래스입니다.
 ```cs
 static void Main()
         {
@@ -93,12 +94,14 @@ Application.Run(new MainForm());
 </br></br></br>
 # MainForm.cs
 * ## `InitializeComponent()`
+  `WinForm`의 외형을 구현하는 것과 동시에 관련 객체를 선언하는 메소드입니다.
 ```cs
     ... 양이 많은 관계로 스킵하겠습니다.
 ```
-`WinForm`의 외형을 구현하는 것과 동시에 관련 객체를 선언하는 메소드입니다.
+
 </br></br></br>
 * ## `CheckData(bool Message = false)`
+  필요한 부분을 파싱한 Xml데이터를 DataTable타입의 변수에 저장하기 위해 배열에 저장하는 메소드이다.  
 ```cs
 private async void CheckData(bool Message = false)
         {
@@ -132,9 +135,61 @@ private async void CheckData(bool Message = false)
             catch (NullReferenceException ex) { MessageBox.Show("OpenApi호출문제 발생\r\n" + ex); }
         }
 ```
+  `bool Message`를 통해 버튼을 통한 상호작용 이 아닌 경우와 상호작용을 통한 실행 여부를 결정한다.
+  ```cs
+  private async void CheckData(bool Message = false)
+  ```
+  > 가져올 데이터가 비동기 `async`임으로 이를 활용하는 메소드 역시 동일하게 부여했다.  
+  > 또한, Xml을 배열에 저장하는 만큼 자주 사용하기 때문에 중복되는 기능을 최소하 하고자  
+  > 메세지의 출력 여부를 선택할 수 있도록 했다.
+  ```cs
+            Thread.Sleep(100);
+            OpenApi openApi = new OpenApi();
+            String results = await openApi.OpenApiGetData(ApiKey.Getkey(), length);
+            openApi.DataToXml(results); //Make Civ19.xml
+  ```
+  > `Thread.Sleep(100)`의 경우 초창기 데이터를 가져오는 부분에서 여유를 갖고자 임의로 지정한 것이다.  
+  > 이후에도 크게 문제가 없어서 방치했는데 크게 의미는 없다.  
+  > `OpenApi openApi = new OpenApi();`를 통해 `OpenApi`객체를 선언하고  
+  > 전체 Xml데이터를 파싱해온다. 이때 전체 데이터의 범위는 `length` 값에 따라 달라진다.
+  > 최종적으로는 `Civ19.xml`이라는 파일이 생성된다.
+  ```cs
+            try
+            {
+                String[] createDt = new string[length + 1];
+                openApi.XmlParsing_StringArray(createDt, length, 5, 5, "createDt");
+
+                int[] decideCnt = new int[length + 1];
+                openApi.XmlParsing_IntArray(decideCnt, length, "decideCnt");
+                if (Message)
+                {
+                    string message = lb_StartDate.Text + " ~ " + lb_EndDate.Text + "\n불러왔습니다.";
+                    MessageBox.Show(message);
+                }
+
+                Datatable(createDt, decideCnt, length);
+
+                if (!string.IsNullOrEmpty(createDt[1]))
+                {
+                    CoivChart(dt);
+                }
+
+            }
+            catch (ArgumentException ex) { MessageBox.Show("XML 문제 발생\r\n" + ex); }
+            catch (NullReferenceException ex) { MessageBox.Show("OpenApi호출문제 발생\r\n" + ex); }
+  ```
+  > String형 변수들은 `XmlParsing_StringArray()`메소드를 통해 저장하고. Int형 변수들은 `XmlParsing_IntArray()`메소드를 통해 저장한다.  
+  > 이과정에서 만약 `Message`의 값이 `True`일 경우,  전체 데이터의 범위를 메세지로 출력한다.  
+  > 아닐 경우에는 해당 과정을 스킵한다.   
+  > 완성된 배열들은 `Datatable(createDt, decideCnt, length);`메소드를 통해 `Datatable`형 변수에 저장된다.  
+  > `if (!string.IsNullOrEmpty(createDt[1]))`의 경우 금일 확진자수를 확인하기 위해서  데이터의 범위는 최소 2개 이상이다.  
+  > 따라서 불러온 데이터가 1개일 경우에는 `CoivChart(dt);`은 실행되지 않도록 합니다.  
+  > `catch (ArgumentException ex) { `은 값을 벗어나는 경우에 대한 예외처리입니다.  
+  > `catch (NullReferenceException ex) {`은 값이 없을 경우에 대한 예외처리입니다.
 
 </br></br></br>
 * ## `Datatable(String[] createDt, int[] decideCnt, int length)`
+  배열 값을 `Datatable`형의 전역변수 `dt`에 저장하는 메서드이다.
 ```cs
 private void Datatable(String[] createDt, int[] decideCnt, int length)
         {
@@ -153,6 +208,12 @@ private void Datatable(String[] createDt, int[] decideCnt, int length)
             }
         }
 ```
+저장되는 `DataTable`의 형태는 이런 식이다.  
+|createDt  |decideCnt|
+|------|------|
+|테스트1|테스트2|
+|테스트1|테스트2|
+|테스트1|테스트2|
 
 </br></br></br>
 * ## `CoivChart(Datatable dt)`
@@ -200,43 +261,59 @@ private void CoivChart(DataTable dt)//Art Chart
     
     </br></br></br>
 * ## Top_Bar Custom
+  > From의 기본 틀을 제거하는 대신 사라진 상단바를 대신하기 뒤한 전역 변수들입니다.
    ```cs
    bool isMove;
    int MouseX, MouseY;
    ```
   * ## `panelTop_MouseUp(object sender, MouseEventArgs e)`
     ```cs
-
+        private void panelTop_MouseUp(object sender, MouseEventArgs e)
+                {
+                  isMove = false;
+                }
     ```
     
     </br></br></br>
   * ## `panelTop_MouseDown(object sender, MouseEventArgs e)`
     ```cs
-
+        private void panelTop_MouseDown(object sender, MouseEventArgs e)
+                {
+                  isMove = true;
+                  MouseX = e.X;
+                  MouseY = e.Y;
+                }
     ```
     
     </br></br></br>
   * ## `panelTop_MouseMove(object sender, MouseEventArgs e)`
     ```cs
-
+        private void panelTop_MouseMove(object sender, MouseEventArgs e)
+                {
+                  if (isMove == true)
+                    {
+                        this.SetDesktopLocation(MousePosition.X - MouseX, MousePosition.Y - MouseY);
+                    }
+                }
     ```
-    
-    </br></br></br>
-  * ## `panelTop_MouseMove(object sender, EventArgs e)`
-    ```cs
 
-    ```
-    
     </br></br></br>
   * ## `Btn_Minmon(object sender, EventArgs e)`
     ```cs
-
+        private void Btn_Minmon(object sender, EventArgs e)
+                {
+                  File.Delete("Civ19.xml");
+                  this.Close();
+                }
     ```
 
     </br></br></br>
   * ## `Btn_Close(object sender, EventArgs e)`
     ```cs
-
+        private void Btn_Close(object sender, EventArgs e)
+                {
+                  this.WindowState = FormWindowState.Minimized;
+                }
     ```
 
 
