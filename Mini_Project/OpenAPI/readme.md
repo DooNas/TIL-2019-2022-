@@ -208,15 +208,20 @@ private void Datatable(String[] createDt, int[] decideCnt, int length)
             }
         }
 ```
-저장되는 `DataTable`의 형태는 이런 식이다.  
-|createDt  |decideCnt|
-|------|------|
-|테스트1|테스트2|
-|테스트1|테스트2|
-|테스트1|테스트2|
+> 저장되는 `DataTable`의 형태는 이런 식이다.  
+> |createDt  |decideCnt|
+> |------|------|
+> `2021-11-27` | 436968 | 
+> `2021-11-26` | 432900 | 
+> `2021-11-25` | 429000 | 
+> `2021-11-24` | 425062 | 
+> `2021-11-23` | 420947 | 
+> `2021-11-20` | 418249 | 
+> `2021-11-19` | 415422 | 
 
 </br></br></br>
 * ## `CoivChart(Datatable dt)`
+  카카오톡 차트와 비슷하게 바꾼 차트를 부르는 메서드입니다.
 ```cs
 private void CoivChart(DataTable dt)//Art Chart
         {
@@ -252,6 +257,7 @@ private void CoivChart(DataTable dt)//Art Chart
     
     </br></br></br>
   * ## `Btn_Search_Click(object sender, EventArgs e)`
+    `CheckData()` 메서드의 메세지출력부분을 승인한 것이다.   
     ```cs
     private void Btn_Search_Click(object sender, EventArgs e)
             {
@@ -273,8 +279,6 @@ private void CoivChart(DataTable dt)//Art Chart
                   isMove = false;
                 }
     ```
-    
-    </br></br></br>
   * ## `panelTop_MouseDown(object sender, MouseEventArgs e)`
     ```cs
         private void panelTop_MouseDown(object sender, MouseEventArgs e)
@@ -284,8 +288,6 @@ private void CoivChart(DataTable dt)//Art Chart
                   MouseY = e.Y;
                 }
     ```
-    
-    </br></br></br>
   * ## `panelTop_MouseMove(object sender, MouseEventArgs e)`
     ```cs
         private void panelTop_MouseMove(object sender, MouseEventArgs e)
@@ -296,8 +298,6 @@ private void CoivChart(DataTable dt)//Art Chart
                     }
                 }
     ```
-
-    </br></br></br>
   * ## `Btn_Minmon(object sender, EventArgs e)`
     ```cs
         private void Btn_Minmon(object sender, EventArgs e)
@@ -306,8 +306,6 @@ private void CoivChart(DataTable dt)//Art Chart
                   this.Close();
                 }
     ```
-
-    </br></br></br>
   * ## `Btn_Close(object sender, EventArgs e)`
     ```cs
         private void Btn_Close(object sender, EventArgs e)

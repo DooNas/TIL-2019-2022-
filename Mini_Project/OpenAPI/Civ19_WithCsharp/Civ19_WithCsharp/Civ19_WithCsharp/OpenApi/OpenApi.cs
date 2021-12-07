@@ -79,6 +79,21 @@ namespace Civ19_WithCsharp
             }
         }
 
+        public void decideCnt_today(String[] createDt, int[] decideCnt, int length) //금일 인구수 확인
+        {
+            for (int index = 0; index < length; index++)
+            {
+                String D_day = createDt[index + 1];
+                int TodaydecideCnt = decideCnt[index + 1] - decideCnt[index];
+                if (D_day == null)  //if 더이상 출력할 요소가 없다면 종료.
+                {
+                    return;
+                }
+                createDt[index] = D_day;
+                decideCnt[index] = TodaydecideCnt;
+            }
+        }
+
         public void XmlParsing_IntArray(int[] array, int length, String node)
         {
             XmlDocument xml = new XmlDocument();

@@ -70,13 +70,7 @@ namespace Civ19_WithCsharp
             dt.Columns.Add(new DataColumn("확진자", typeof(int)));
             for (int index = 0; index < length; index++)
             {
-                String D_day = createDt[index+1];
-                String TodaydecideCnt = (decideCnt[index + 1] - decideCnt[index]).ToString();
-                if (D_day == null)  //if 더이상 출력할 요소가 없다면 종료.
-                {
-                    return;
-                }
-                dt.Rows.Add(D_day, TodaydecideCnt);
+                dt.Rows.Add(createDt[index], decideCnt[index]);
             }
         }
         Chart chart;
@@ -102,7 +96,7 @@ namespace Civ19_WithCsharp
         private void Tb_Term_Scroll(object sender, EventArgs e)
         {
             OpenApi openApi = new OpenApi();
-            tb_Term.Value = length;
+            length = tb_Term.Value;
             if(length < 10) lb_date.Text = " " + length.ToString() + "일";
             else lb_date.Text = length.ToString() + "일";
             lb_StartDate.Text = DateTime.Now.AddDays(-length).ToShortDateString();
@@ -128,24 +122,14 @@ namespace Civ19_WithCsharp
                 int[] decideCnt = new int[length + 1];
                 openApi.XmlParsing_IntArray(decideCnt, length, "decideCnt");
 
-                String d = string.Empty;
-                foreach(String i in createDt)
-                {
-                    d += i + ", ";
-                }
-                d += "\n";
-                foreach(int i in decideCnt)
-                {
-                    d += i.ToString() + ", ";
-                }
-                MessageBox.Show(d);
-                /*
+                openApi.decideCnt_today(createDt, decideCnt, length);
+                
                 if (Message)
                 {
                     string message = lb_StartDate.Text + " ~ " + lb_EndDate.Text + "\n불러왔습니다.";
                     MessageBox.Show(message);
                 }
-                */
+                
                 Datatable(createDt, decideCnt, length);
                 CoivChart(dt);
                 if (!string.IsNullOrEmpty(createDt[1]))
