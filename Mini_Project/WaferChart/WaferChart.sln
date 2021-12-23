@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaferChart", "WaferChart\WaferChart.csproj", "{6A8D9F15-2A65-4A6B-8497-F7042E9E2D09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaferChart_Test", "WaferChart_Test\WaferChart_Test.csproj", "{D5D80F8F-87BB-42FC-86A6-0CBAC25E3BC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A8D9F15-2A65-4A6B-8497-F7042E9E2D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A8D9F15-2A65-4A6B-8497-F7042E9E2D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A8D9F15-2A65-4A6B-8497-F7042E9E2D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A8D9F15-2A65-4A6B-8497-F7042E9E2D09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5D80F8F-87BB-42FC-86A6-0CBAC25E3BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5D80F8F-87BB-42FC-86A6-0CBAC25E3BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5D80F8F-87BB-42FC-86A6-0CBAC25E3BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5D80F8F-87BB-42FC-86A6-0CBAC25E3BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D451BFB-DEA3-4D5F-9E9F-D979E46A86A7}
+	EndGlobalSection
+EndGlobal
