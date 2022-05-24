@@ -23,7 +23,7 @@ public class Main {
 //        no1546.ansower();
 //        no8958 no8958 = new no8958();
 //        no8958.ansower();
-        no4344 no4344 = new no4344();
-        no4344.ansower();
+//        no4344 no4344 = new no4344();
+//        no4344.ansower();
     }
 }
