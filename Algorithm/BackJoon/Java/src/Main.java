@@ -1,10 +1,11 @@
+import apl.linearlist;
 import backjoon.*;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args){
 //        no10926 no10926 = new no10926();
 //        no10926.ansower();
 //        no18108 no18108 = new no18108();
@@ -25,5 +26,19 @@ public class Main {
 //        no8958.ansower();
 //        no4344 no4344 = new no4344();
 //        no4344.ansower();
+
+        linearlist list = new linearlist(100);
+        list.AddElements(1);
+        list.AddElements(2);
+        list.AddElements(3);
+        list.AddElements(5);
+        list.AddElements(5);
+        //list = {1,2,3,5,5}
+        list.printAll();
+        list.RemoveElement(1); // 2를 삭제
+        //list = {1,3,5,5}
+        list.printAll();
+        list.GetElement(3); //5를 출력
+
     }
 }
