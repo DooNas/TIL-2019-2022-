@@ -1,2 +1,0 @@
-# Divisibility by 11
-  
